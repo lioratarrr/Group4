@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Tenor Sans";
-  src:url("Group4/TenorSans-Regular.ttf") format('truetype');
+  src:url("Group4/Fonts/TenorSans-Regular.ttf") format('truetype');
 }
 @font-face {
   font-family: "Heebo";
-  src:url("Group4/Heebo-Regular.ttf") format('truetype');
+  src:url("Group4/Fonts/Heebo-Regular.ttf") format('truetype');
 }
 
 body {
@@ -15,7 +15,7 @@ body {
   color: #102C57;
   background-color: #FEFAF6;
   position: sticky;
-  top: 20px;
+  top: 0px;
   z-index: 1000;
 
 }
@@ -54,7 +54,13 @@ body {
   margin-bottom: 10px;
   top: 78px;
   z-index: 1000;
+  max-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
 }
+
 .navbar ul {
   list-style-type: none;
   display: flex;
@@ -62,8 +68,9 @@ body {
   align-items: center;
   margin:0;
   padding: 0;
-  gap: 100px;
+  gap
   font-size: 18px;
+  flex-wrap: wrap;
 }
 
 .navbar li {
@@ -80,6 +87,11 @@ body {
   transform: translateY(-50%);
   font-size: 16px;
 }
+
+.hamburger {
+  display: block;
+}
+
 a {
   color: #102C57;
   text-decoration: none;
@@ -148,6 +160,7 @@ h2 {
   font-family: "Tenor Sans", "Tenor Sans";
   color: #102C57;
   text-align: center;
+  margin: 0px;
 }
 
 .photo {
@@ -182,8 +195,20 @@ form {
 }
 .row {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 10px;
+}
+
+.row button {
+  margin-left: 80px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-family: "Tenor Sans", "Tenor Sans";
+  background-color: #102C57;
+  color: #FEFAF6;
+  border-radius: 10px;
+
 }
 label {
   margin-right: 10px;
@@ -225,3 +250,5 @@ input {
   font-family: Heebo;
   margin-right: 40px;
 }
+
+
