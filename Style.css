@@ -1,16 +1,18 @@
+/*english font*/
 @font-face {
   font-family: "Tenor Sans";
   src:url("Group4/Fonts/TenorSans-Regular.ttf") format('truetype');
 }
+/*hebrew font*/
 @font-face {
   font-family: "Heebo";
   src:url("Group4/Fonts/Heebo-Regular.ttf") format('truetype');
 }
-
+/*solid background*/
 body {
   background-color: #FEFAF6;
 }
-
+/*navigation bar + header*/
 .header-navbar {
   color: #102C57;
   background-color: #FEFAF6;
@@ -19,23 +21,24 @@ body {
   z-index: 1000;
 
 }
+/*adjest the top of the header that include the title*/
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
 }
-
+/*formatting the photos*/
 .header-photo {
   margin-top: 30px;
   width: 50px;
 }
-
+/*formatting the icons spaces*/
 .header-icons {
   display: flex;
   gap: 15px;
 }
-
+/*title design*/
 .header {
   font-size: 36px;
   font-family: "Tenor Sans", sans-serif;
@@ -43,6 +46,7 @@ body {
   flex-grow: 1;
   margin-top: 40px;
 }
+/*navigation bar design and spacing*/
 .navbar {
   font-family: Heebo;
   border-top: 2px solid #102C57;
@@ -50,11 +54,11 @@ body {
   width: 100%;
   box-sizing: border-box;
   padding: 6px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin: 30px 0 10px 0;
   top: 78px;
   z-index: 1000;
 }
+/*list in the navigation bar*/
 .navbar ul {
   list-style-type: none;
   display: flex;
@@ -65,12 +69,12 @@ body {
   gap: 100px;
   font-size: 18px;
 }
-
+/*space the list*/
 .navbar li {
   position: relative;
   padding: 0 20px;
 }
-
+/*makes marks between the objects*/
 .navbar li:not(:last-child)::after {
   content: "|";
   color: #102C57;
@@ -80,21 +84,21 @@ body {
   transform: translateY(-50%);
   font-size: 16px;
 }
-
+/*for later in JS*/
 .hamburger {
   display: block;
 }
-
+/*link customization*/
 a {
   color: #102C57;
   text-decoration: none;
 }
-
+/*hover function*/
 a:hover {
   font-weight: bold;
   text-decoration: underline;
 }
-
+/*mini title for home-page*/
 #welcome {
   text-align: right;
   font-family: Heebo;
@@ -102,7 +106,7 @@ a:hover {
   font-size: 25px;
   margin-top: 0;
 }
-
+/*products container*/
 .Products {
   display: flex;
   justify-content: center;
@@ -111,15 +115,18 @@ a:hover {
   padding: 15px;
   padding-top: 0;
 }
+/*product card container*/
 .Product_Card {
   text-align: center;
   font-family: Heebo;
   color: #102C57;
 }
+/*product title*/
 .Product_Name{
   margin-bottom: 0;
+  font-family: Heebo;
 }
-
+/*product image formating*/
 .Product_Image {
   border: 3px #102C57 solid;
   border-radius: 10px;
@@ -128,17 +135,18 @@ a:hover {
   display: block;
   margin:10px auto;
 }
-
+/*product description edit*/
 .Product_Description {
   margin-top: 0;
 }
+/*presave button format*/
 .Presave {
   background-color: #102C57;
   color: #FEFAF6;
   font-family: Heebo;
   border-radius: 10px;
 }
-
+/*footer*/
 .ending {
   color: #102C57;
   font-family: Heebo;
@@ -148,64 +156,65 @@ a:hover {
   border-top: 2px solid #102C57;
   padding: 7px;
 }
-
+/*header format for categories*/
 h2 {
   font-family: "Tenor Sans", "Tenor Sans";
   color: #102C57;
   text-align: center;
 }
-
+/*categories for products*/
 .photo {
   margin-left: 8px;
   width: 20px;
 }
-
+/*container for sign in*/
 #sign-in {
   color: #102C57;
   font-family: Heebo;
   text-align: center;
 }
-
-#signup {
+/*header for sign in*/
+#signin {
   text-decoration:underline;
 }
+/*container for sign up*/
 #sign-up {
   color: #102C57;
   font-family: Heebo;
   text-align: center;
 }
-
-#signin {
+/*sign up header*/
+#signup {
   text-decoration:underline;
 }
 
+/*form design*/
 form {
   color: #102C57;
   font-family: "Tenor Sans", "Tenor Sans";
   display: flex;
   flex-direction: column;
 }
+/*rows design- email header, first name, last name etc*/
 .row {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-
-.row button {
-  margin-left: 80px;
-  margin-bottom: 30px;
-  margin-top: 10px;
+/*sign in + sign up design*/
+.signbutton button {
   font-family: "Tenor Sans", "Tenor Sans";
   background-color: #102C57;
   color: #FEFAF6;
   border-radius: 10px;
-
+  margin-bottom: 30px;
 }
+/*label design*/
 label {
   margin-right: 10px;
   width: 100px;
 }
-
+/*form input design*/
 input {
   border: #102C57 solid 2px;
   border-radius: 15px;
@@ -213,9 +222,9 @@ input {
   width: 200px;
   background-color: #FEFAF6;
 }
-
+/*container for the 2 forms in order to space them*/
 #form-container {
-  margin-left: 90px;
+  margin-left: 70px;
   display: flex;
   gap: 600px;
 }
@@ -228,7 +237,7 @@ input {
   font-size: 30px;
   font-weight: bold;
 }
-
+/*filter by branches*/
 .filter {
     text-align: center;
   color: #102C57;
@@ -236,11 +245,13 @@ input {
   font-size: 20px;
   font-weight: bold;
 }
+/*customize the drop down*/
 #dropdown {
   width: 150px;
   font-family: Heebo;
   margin-right: 40px;
 }
+/*דנה תוסיפי הערות*/
 .my-account {
     margin: 30px auto;
     padding: 20px;
@@ -299,15 +310,7 @@ input {
     color: #1a2a4a;
     margin-left: 10px;
 }
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #f9f9f9;
-    padding: 10px 0;
-    border-top: 1px solid #ccc;
-}
+
 .product-container {
   display: flex;
   justify-content: flex-end;
@@ -339,6 +342,7 @@ input {
 }
 
 .product-info h1 {
+  font-family: Heebo;
   font-size: 24px;
   color: #002f5f;
   margin-bottom: 10px;
@@ -346,6 +350,7 @@ input {
 }
 
 .product-info p {
+  font-family: Heebo;
   font-size: 18px;
   color: #333;
   margin-bottom: 20px;
@@ -353,6 +358,7 @@ input {
 }
 
 form {
+  font-family: Heebo;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -365,8 +371,18 @@ form label {
   text-align: right;
   width: 100%;
 }
+.checkbox-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.checkbox-container label {
+  /*margin-right: 10px;*/
+}
 
 form select {
+  padding-right: 20px;
+  direction: rtl;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #002f5f;
@@ -374,17 +390,8 @@ form select {
   width: 300px;
 }
 
-form .pickup {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-
-
 form button {
+  font-family: Heebo;
   padding: 10px 30px;
   font-size: 16px;
   border: none;
@@ -397,4 +404,8 @@ form button {
 
 form button:hover {
   background-color: #004080;
+}
+
+.account-section {
+  font-family: Heebo;
 }
