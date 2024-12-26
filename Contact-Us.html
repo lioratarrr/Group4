@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-<div class="header-navbar">
+ <div class="header-navbar">
 <!--   header and navbar combined-->
    <div class="header-top">
     <div class="header-icons">
@@ -35,44 +35,25 @@
 </nav>
 </div>
 <br>  </br>
- <div class="product-container">
-  <div class="product-info">
-    <h1>שם המוצר</h1>
-    <p>תיאור מוצר</p>
-    <form>
-      <label for="color">צבע</label>
-      <select id="color">
-        <option>בחר צבע</option>
-        <option>אדום</option>
-        <option>כחול</option>
-      </select>
-
-      <label for="quantity">כמות</label>
-      <select id="quantity">
-        <option>בחר כמות</option>
-        <option>1</option>
-        <option>2</option>
-      </select>
-
-      <label for="branch">סניף</label>
-      <select id="branch">
-        <option>בחר סניף</option>
-        <option>תל אביב</option>
-        <option>חיפה</option>
-      </select>
-
-      <div class = "checkbox-container">
-        <label for="pickup">אני רוצה לאסוף מהחנות</label>
-        <input type="checkbox" id="pickup">
-      </div>
-
-      <button type="submit">שריין עכשיו</button>
-    </form>
-  </div>
-  <div class="product-image">
-    <p>תמונה</p>
-  </div>
-</div>
+   <div id = contactus>
+     <div class = "opening">  !אנחנו פה בשבילך
+     <p>(: ניתן למלא את הפרטים כאן כדי שנציג יחזור אלייך, או לחלופין לפנות ישירות לסניפים </p>
+       <form id = contactusform>
+        <div class ="rowcu">
+          <input type="text" id="full-name" name="full-name">
+           <label for ="full-name">שם מלא</label>
+       </div>
+         <div class ="rowcu">
+           <input type="phone" id="phone" name="phone">
+            <label for ="phone">טלפון לחזרה</label>
+         </div>
+         <div class ="rowcu">
+           <input type="text" id="info" name="info">
+            <label for ="info">?במה תרצי שנעזור לך</label>
+         </div>
+       </form>
+       </div>
+   </div>
    <!--footer-->
 <footer class = "ending">
   <img src="elements/instagram.png" class="photo">
