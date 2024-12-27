@@ -1,12 +1,14 @@
-/*english font*/
+/*!*english font*!*/
 @font-face {
-  font-family: "Tenor Sans";
-  src:url("Group4/Fonts/TenorSans-Regular.ttf") format('truetype');
+  font-family: 'Tenor Sans';
+  src:url('../Group4/Fonts/TenorSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 /*hebrew font*/
 @font-face {
   font-family: "Heebo";
-  src:url("Group4/Fonts/Heebo-Regular.ttf") format('truetype');
+  src:url('../Group4/Fonts/Heebo-Regular.ttf') format('truetype');
 }
 /*solid background*/
 body {
@@ -202,20 +204,15 @@ form {
   margin-bottom: 10px;
 }
 /*sign in + sign up button design*/
-#signinbutton {
+.btn {
   font-family: "Tenor Sans", "Tenor Sans";
   background-color: #102C57;
   color: #FEFAF6;
   border-radius: 10px;
   margin-bottom: 30px;
+  width: 100px;
 }
-#signupbutton button{
-  font-family: "Tenor Sans", "Tenor Sans";
-  background-color: #102C57;
-  color: #FEFAF6;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
+
 /*label design*/
 label {
   margin-right: 10px;
@@ -416,12 +413,12 @@ form button:hover {
 .account-section {
   font-family: Heebo;
 }
-
+/*create a design for the contact us box*/
 #contactus {
   background-color: #102C57;
   border-radius: 10px;
 }
-
+/*text for introducing*/
 .opening {
   font-family: Heebo;
   color: #FEFAF6;
@@ -429,27 +426,37 @@ form button:hover {
   text-align: center;
   margin-bottom: 50px;
 }
+/*second paragraph*/
 .opening p {
   font-family: Heebo;
   color: #FEFAF6;
   font-size: 20px;
   text-align: center;
 }
+/*contact us form design*/
 #contactusform {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+/*design the label of the full name, contact and the reason for reaching*/
 .rowcu label {
   color: #FEFAF6;
   font-size: 15px;
   align-items: flex-start;
 }
+/*make the reason of reaching out bigger*/
 #info {
   width: 400px;
   height: 100px
 }
-
+/*error design for filling out forms wrong*/
+.error {
+  font-size: 15px;
+  font-family: Heebo;
+  color: red;
+  font-weight: bold;
+}
 
 
 
