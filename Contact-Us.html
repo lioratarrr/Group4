@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
     <title>Gili's Jewelery</title>
     <link rel="stylesheet" href="Style.css">
+    <script src ="Contact.js"></script>
 </head>
 <body>
  <div class="header-navbar">
@@ -18,8 +19,10 @@
 <!--      locations logo-->
     </div>
   <header class = "header">Gili's Jewelery</header>
-     <a href="sign-in.html"><img src="elements/profile.png" class="header-photo"></a>
+     <a href="Sign-in.html"><img src="elements/profile.png" class="header-photo"></a>
 <!--     sign in logo-->
+     <span class="hamburger">☰</span>
+<!--     for smaller screens-->
    </div>
 
   <nav class = navbar>
@@ -34,7 +37,7 @@
   </ul>
 </nav>
 </div>
-<br>  </br>
+<br>
    <div id = contactus>
      <div class = "opening">  !אנחנו פה בשבילך
      <p>(: ניתן למלא את הפרטים כאן כדי שנציג יחזור אלייך, או לחלופין לפנות ישירות לסניפים </p>
@@ -50,10 +53,14 @@
          <div class ="rowcu">
            <input type="text" id="info" name="info">
             <label for ="info">?במה תרצי שנעזור לך</label>
+           <div>
+             <input type="button" value=Submit id = "btn-submit">
+           </div>
          </div>
        </form>
        </div>
    </div>
+<script src = "Navigation.js"></script>
    <!--footer-->
 <footer class = "ending">
   <img src="elements/instagram.png" class="photo">

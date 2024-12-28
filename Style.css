@@ -10,6 +10,54 @@
   font-family: "Heebo";
   src:url('../Group4/Fonts/Heebo-Regular.ttf') format('truetype');
 }
+
+@media (max-width: 1100px) {
+  /* Hide the navbar items and show the hamburger icon */
+  .navbar {
+    border: none !important;
+  }
+  .navbar.active {
+    left: 0;
+  }
+  .navbar ul {
+    display: none !important;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    background-color:#FEFAF6 ;
+    position: absolute;
+    right: 0;
+    border-right: 2px #102C57 solid;
+  }
+
+  .hamburger {
+    display: block !important;
+  }
+
+  /* When the navbar is active, show the menu items */
+  .navbar.active ul {
+    display: flex !important;
+    border: #102C57 2px solid;
+    align-items: center;
+  }
+  .navbar li:first-child {
+    margin-top: 50px;
+  }
+  .navbar li:last-child{
+    margin-bottom: 50px;
+  }
+  /* Style for the navbar when it's active */
+  .navbar.active .hamburger {
+    color: #FEFAF6;
+  }
+  .header-navbar span {
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+}
+
 /*solid background*/
 body {
   background-color: #FEFAF6;
@@ -19,7 +67,6 @@ body {
   color: #102C57;
   background-color: #FEFAF6;
   position: sticky;
-  top: 20px;
   z-index: 1000;
 
 }
@@ -50,15 +97,13 @@ body {
 }
 /*navigation bar design and spacing*/
 .navbar {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   border-top: 2px solid #102C57;
   border-bottom: 2px solid #102C57;
   width: 100%;
   box-sizing: border-box;
   padding: 6px;
   margin: 30px 0 10px 0;
-  top: 78px;
-  z-index: 1000;
 }
 /*list in the navigation bar*/
 .navbar ul {
@@ -86,10 +131,7 @@ body {
   transform: translateY(-50%);
   font-size: 16px;
 }
-/*for later in JS*/
-.hamburger {
-  display: block;
-}
+
 /*link customization*/
 a {
   color: #102C57;
@@ -100,10 +142,18 @@ a:hover {
   font-weight: bold;
   text-decoration: underline;
 }
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: #102C57;
+}
+
 /*mini title for home-page*/
 #welcome {
   text-align: right;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   color: #102C57;
   font-size: 25px;
   margin-top: 0;
@@ -114,19 +164,18 @@ a:hover {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 15px;
-  padding-top: 0;
+  padding: 0 15px 15px 15px;
 }
 /*product card container*/
 .Product_Card {
   text-align: center;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   color: #102C57;
 }
 /*product title*/
 .Product_Name{
   margin-bottom: 0;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
 }
 /*product image formating*/
 .Product_Image {
@@ -145,13 +194,27 @@ a:hover {
 .Presave {
   background-color: #102C57;
   color: #FEFAF6;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.Presave a {
+  color: #FEFAF6;
+  text-decoration: none;
+}
+
+#presavetext {
+  text-align: center;
+  color: #102C57;
+  font-family: Heebo,sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 /*footer*/
 .ending {
   color: #102C57;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,7 +223,7 @@ a:hover {
 }
 /*header format for categories*/
 h2 {
-  font-family: "Tenor Sans", "Tenor Sans";
+  font-family: "Tenor Sans", "Tenor Sans", sans-serif;
   color: #102C57;
   text-align: center;
 }
@@ -172,7 +235,7 @@ h2 {
 /*container for sign in*/
 #sign-in {
   color: #102C57;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   text-align: center;
 }
 /*header for sign in*/
@@ -182,7 +245,7 @@ h2 {
 /*container for sign up*/
 #sign-up {
   color: #102C57;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   text-align: center;
 }
 /*sign up header*/
@@ -193,7 +256,7 @@ h2 {
 /*form design*/
 form {
   color: #102C57;
-  font-family: "Tenor Sans", "Tenor Sans";
+  font-family: "Tenor Sans", "Tenor Sans", sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -205,11 +268,19 @@ form {
 }
 /*sign in + sign up button design*/
 .btn {
-  font-family: "Tenor Sans", "Tenor Sans";
+  font-family: "Tenor Sans", sans-serif;
   background-color: #102C57;
   color: #FEFAF6;
   border-radius: 10px;
   margin-bottom: 30px;
+  width: 100px;
+}
+
+#btn-submit{
+  font-family: "Tenor Sans", sans-serif;
+  background-color: #FEFAF6;
+  border: #102C57 solid 2px;
+  color: #102C57;
   width: 100px;
 }
 
@@ -230,14 +301,14 @@ input {
 #form-container {
   margin-left: 70px;
   display: flex;
-  gap: 600px;
+  gap: 500px;
 }
 
 /*Categories*/
 .category {
   text-align: center;
   color: #102C57;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   font-size: 30px;
   font-weight: bold;
 }
@@ -245,14 +316,14 @@ input {
 .filter {
     text-align: center;
   color: #102C57;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   font-size: 20px;
   font-weight: bold;
 }
 /*customize the drop down*/
 #dropdown {
   width: 150px;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   margin-right: 40px;
 }
 /*דנה תוסיפי הערות*/
@@ -346,7 +417,7 @@ input {
 }
 
 .product-info h1 {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   font-size: 24px;
   color: #002f5f;
   margin-bottom: 10px;
@@ -354,7 +425,7 @@ input {
 }
 
 .product-info p {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   font-size: 18px;
   color: #333;
   margin-bottom: 20px;
@@ -362,7 +433,7 @@ input {
 }
 
 form {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -379,9 +450,10 @@ form label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 .checkbox-container label {
-  /*margin-right: 10px;*/
+  margin-right: 10px;
 }
 
 form select {
@@ -395,7 +467,7 @@ form select {
 }
 
 form button {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   padding: 10px 30px;
   font-size: 16px;
   border: none;
@@ -411,16 +483,20 @@ form button:hover {
 }
 
 .account-section {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
 }
 /*create a design for the contact us box*/
 #contactus {
   background-color: #102C57;
   border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 20px;
 }
 /*text for introducing*/
 .opening {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   color: #FEFAF6;
   font-size: 30px;
   text-align: center;
@@ -428,7 +504,7 @@ form button:hover {
 }
 /*second paragraph*/
 .opening p {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   color: #FEFAF6;
   font-size: 20px;
   text-align: center;
@@ -453,9 +529,10 @@ form button:hover {
 /*error design for filling out forms wrong*/
 .error {
   font-size: 15px;
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   color: red;
   font-weight: bold;
+  text-align: center;
 }
 
 

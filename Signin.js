@@ -1,7 +1,5 @@
-function validateEmail(email) { //checking if the email is valid
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
+const validateEmail =  email => /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*$/.test(email); //check email validity
+
 document.addEventListener('DOMContentLoaded', () => {
     // sign in variables
     const emailForSignin = document.querySelector('#email-for-sign-in');
@@ -12,103 +10,104 @@ document.addEventListener('DOMContentLoaded', () => {
     error.setAttribute('class', 'error')
     const container = document.querySelector('#sign-in')
 
-        // sign up variables
-    const firstName = document.querySelector('#first-name');
-    const lastName = document.querySelector('#last-name');
+    // sign up variables
+    const firstName = document.querySelector('#first-name')
+    const lastName = document.querySelector('#last-name')
     const emailForSignUp = document.querySelector('#email-for-sign-up')
     const passwordForSignUp = document.querySelector('#passwordsu')
     const errorsignup = document.createElement('div')
     errorsignup.setAttribute('class', 'error')
     const signupcontainer = document.querySelector('#sign-up')
 
-
         // sign in event listener
         buttons[0].addEventListener('click', (e) => {
           e.preventDefault();
-          if (emailForSignin.value === '' && passwordForSignin.value === '') { // if both are empty
-            console.log('Both fields are empty');
-            emailForSignin.style.borderColor = "Red";
-            passwordForSignin.style.borderColor = "Red";
-            error.textContent = "יש למלא את כל השדות"; // text
-            container.appendChild(error);
-          } else if (passwordForSignin.value === '' && emailForSignin.value !== '') { // only password is empty
-            console.log('Password not done');
-            passwordForSignin.style.borderColor = "Red";
-            error.textContent = "יש למלא את הסיסמא"; // "Password must be filled"
-            container.appendChild(error);
-          } else if (passwordForSignin.value !== '' && emailForSignin.value === '') { // only email is empty
-            console.log('Email not done');
-            emailForSignin.style.borderColor = "Red";
-            error.textContent = "יש למלא כתובת מייל"; // "Email must be filled"
-            container.appendChild(error);
-          }
-          else if (!validateEmail(emailForSignin)){
-              emailForSignin.style.borderColor = "Red";
-            error.textContent = "יש למלא כתובת מייל תקינה"; // "Email must be filled"
-            container.appendChild(error);
-            }
-          else { // return to normal
-            emailForSignin.style.borderColor = "#002f5f"
-            passwordForSignin.style.borderColor= "#002f5f"
-            console.log('Entered correctly');
-          }
+          errorsignup.textContent = ''
+          if (emailForSignin.value === '' && passwordForSignin.value === '') {
+        console.log('Both fields are empty');
+        emailForSignin.style.borderColor = "Red";
+        passwordForSignin.style.borderColor = "Red";
+        error.textContent = "יש למלא את כל השדות"; // "Both fields must be filled"
+        container.appendChild(error);
+    }
+    // Check if only password is empty
+    else if (passwordForSignin.value === '' && emailForSignin.value !== '') {
+        console.log('Password not done');
+        passwordForSignin.style.borderColor = "Red";
+        error.textContent = "יש למלא את הסיסמא"; // "Password must be filled"
+        container.appendChild(error);
+    }
+    // Check if only email is empty
+    else if (passwordForSignin.value !== '' && emailForSignin.value === '') {
+        console.log('Email not done');
+        emailForSignin.style.borderColor = "Red";
+        error.textContent = "יש למלא כתובת מייל"; // "Email must be filled"
+        container.appendChild(error);
+    }
+    // Check if email is invalid
+    else if (!validateEmail(emailForSignin.value)) {
+        emailForSignin.style.borderColor = "Red";
+        error.textContent = "יש למלא כתובת מייל תקינה"; // "Please enter a valid email"
+        container.appendChild(error);
+    }
+    else { // If no errors, proceed with normal behavior
+        emailForSignin.style.borderColor = "#002f5f";
+        passwordForSignin.style.borderColor = "#002f5f";
+        console.log('Success - log in');
+    }
 
-          // Set a timeout to clear the error message after 5 seconds
-          setTimeout(() => { // timeout message
-            error.textContent = '';
-          }, 5000)
-        }
-        )
+    // Set a timeout to clear the error message after 5 seconds
+    setTimeout(() => {
+        error.textContent = '';
+    }, 5000);
+});
 
         buttons[1].addEventListener('click', (e) => { //sign up form even listener
           e.preventDefault();
+          errorsignup.textContent = ''
           let hasError = false; // boolean to know if there are any more errors
-            if (firstName.value === '') { //check first name
-                errorsignup.textContent += "נא למלא שם פרטי.      "
-                hasError = true;
-                firstName.style.borderColor = "Red"
+          if (firstName.value === '') {
+              errorsignup.textContent += "נא למלא שם פרטי.      ";
+              hasError = true;
+              firstName.style.borderColor = "Red";
+          }
 
-            }
+          // Check last name
+          if (lastName.value === '') {
+              errorsignup.textContent += "נא למלא שם משפחה.     ";
+              hasError = true;
+              lastName.style.borderColor = "Red";
+          }
 
-            if (lastName.value === '') { // check last name
-                errorsignup.textContent += "נא למלא שם משפחה.     ";
-                hasError = true;
-                lastName.style.borderColor = "Red"
-            }
+          // Check email
+          if (emailForSignUp.value === ''||!validateEmail(emailForSignUp.value)) {
+              errorsignup.textContent += "נא למלא כתובת אימייל תקינה.     ";
+              hasError = true;
+              emailForSignUp.style.borderColor = "Red";
+          }
 
-            if (emailForSignUp.value === '') { //check email
-                errorsignup.textContent += "נא למלא אימייל.     ";
-                hasError = true;
-                emailForSignUp.style.borderColor ="Red"
-            }
+          // Check password
+          if (passwordForSignUp.value === '') {
+              errorsignup.textContent += "נא למלא סיסמא.       ";
+              hasError = true;
+              passwordForSignUp.style.borderColor = "Red";
+          }
 
-            if (passwordForSignUp.value === '') { // check password
-                errorsignup.textContent += "נא למלא סיסמא.       ";
-                hasError = true;
-                passwordForSignUp.style.borderColor = "Red"
-            }
-
-            if (!validateEmail(emailForSignUp)) { //check validity of email
-                errorsignup.textContent += "נא למלא כתובת מייל תקינה       ";
-                hasError = true;
-                emailForSignUp.style.borderColor = "Red"
-            }
-
-            // If there are no errors, proceed with form submission or further processing
-            if (!hasError) { // if there's no error, print in console
-                console.log('Form submitted successfully!');
-                firstName.style.borderColor = "#102C57"
-                lastName.style.borderColor = "#102C57"
-                emailForSignUp.style.borderColor = "#102C57"
-                passwordForSignUp.style.borderColor = "#102C57"
-
-                // You can add further processing here
-            }
-
-          signupcontainer.appendChild(errorsignup) // add message
-            // Set a timeout to clear the error message after 5 seconds
-            setTimeout(() => { // time out message
-                errorsignup.textContent = '';
-            }, 5000);
-        }
-        )})
+          // If there are no errors, reset the border colors and log success
+          if (!hasError) {
+              console.log('Sign up completed');
+              firstName.style.borderColor = "#102C57";
+              lastName.style.borderColor = "#102C57";
+              emailForSignUp.style.borderColor = "#102C57";
+              passwordForSignUp.style.borderColor = "#102C57";
+          } else {
+              // Append the error message to the container
+              signupcontainer.appendChild(errorsignup);
+          }
+          // Set a timeout to clear the error message after 5 seconds
+          setTimeout(() => {
+              errorsignup.textContent = '';
+          }, 5000);
+        })
+  }
+)
