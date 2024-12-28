@@ -1,4 +1,4 @@
-const validatePhoneNumber = phone => /^05\d{8}$/.test(phone); // check phone validity
+const validatePhoneNumber = phone => /^05\d{8}$/.test(String(phone)); // check phone validity
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fullName.style.borderColor = "Red"
           }
 
-          if (phone.value === '' || !validatePhoneNumber(phone)) { // check phone
+          if (phone.value === '' || !validatePhoneNumber(phone.value)) { // check phone
             errormsg.textContent += "נא למלא מספר טלפון תקין.     ";
             haserror = true;
             phone.style.borderColor = "Red"
