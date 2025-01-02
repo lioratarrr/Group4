@@ -41,25 +41,32 @@
  <h2>Welcome!</h2>
 
    <form>
-   <div class = "formcontainer">
-  <p> ?אנחנו כבר מכירות</p>
-  <p id = "signin"> להתחברות</p>
+<!--     sign up form-->
+      <div class = "formcontainer">
+        <p> ?פעם ראשונה כאן</p>
+        <p id = "signup"> להרשמה</p>
+    </div>
+     <div class ="row">
+    <label for ="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name">
+       </div>
+     <div class ="row">
+    <label for ="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last-name">
+       </div>
     <div class ="row">
-<!--      email-->
-    <label for ="email-for-sign-in">Email</label>
-    <input type="email" id="email-for-sign-in" name="email">
+    <label for ="email-for-sign-up">Email</label>
+    <input type="email" id="email-for-sign-up" name="email">
        </div>
     <div class = "row">
-    <label for="passwordsi">Password</label>
-    <input type="password" id="passwordsi" name="password">
-    </div>
-        <div>
-        <input type="button" value="Sign In" class = "btn">
-          <p><a href="Signup.html">אין לך חשבון אצלנו? להרשמה לחצי כאן</a> </p>
-        </div>
+    <label for="passwordsu">Password</label>
+    <input type="password" id="passwordsu" name="password">
+      </div>
+     <div>
+      <input type="button" id ="signupbtn" value="Sign Up" class = "btn">
      </div>
  </form>
- <script src ="Signin.js"></script>
+ <script src = "signup.js"></script>
  <script src = "Navigation.js"></script>
 <!--footer-->
 <footer class = "ending">

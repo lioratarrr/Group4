@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const errormsg = document.createElement('div', )
     errormsg.setAttribute('class', 'error')
     const infocontainer = document.querySelector('#contactus')
+    const successmsg = document.createElement('div')
+    successmsg.setAttribute('id','successmsg')
 
 
         submit.addEventListener('click',(e) => {
@@ -39,6 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // If there are no errors, proceed with form submission or further processing
           if (!haserror) { // if there's no error, print in console
+            successmsg.textContent ="בקשתך נשלחה, נציג יחזור אלייך"
+            infocontainer.appendChild(successmsg)
+          // Set a timeout to clear the error message after 5 seconds
+          setTimeout(() => { // timeout message
+            successmsg.textContent = '';
+            }, 5000)
             console.log('Submit success');
             fullName.style.borderColor = "#102C57"
             phone.style.borderColor = "#102C57"

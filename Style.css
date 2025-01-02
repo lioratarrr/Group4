@@ -22,9 +22,9 @@
   .navbar ul {
     display: none !important;
     flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
+    gap: 15px !important;
+    text-align: right;
+    padding: 10px;
     width: 50%;
     background-color:#FEFAF6 ;
     position: absolute;
@@ -41,6 +41,9 @@
     display: flex !important;
     border: #102C57 2px solid;
     align-items: center;
+  }
+  .navbar li {
+    padding: 5px 0;
   }
   .navbar li:first-child {
     margin-top: 50px;
@@ -99,7 +102,7 @@ body {
 }
 /*navigation bar design and spacing*/
 .navbar {
-  font-family: Heebo;
+  font-family: Heebo, sans-serif;
   border-top: 2px solid #102C57;
   border-bottom: 2px solid #102C57;
   width: 100%;
@@ -237,10 +240,11 @@ h2 {
   width: 20px;
 }
 /*container for sign in*/
-#sign-in {
+.formcontainer {
   color: #102C57;
   font-family: Heebo, sans-serif;
   text-align: center;
+  align-items: center;
 }
 /*header for sign in*/
 #signin {
@@ -263,6 +267,9 @@ form {
   font-family: "Tenor Sans", "Tenor Sans", sans-serif;
   display: flex;
   flex-direction: column;
+  align-items: center !important;
+  justify-content: center;
+  margin: 0;
 }
 /*rows design- email header, first name, last name etc*/
 .row {
@@ -276,7 +283,6 @@ form {
   background-color: #102C57;
   color: #FEFAF6;
   border-radius: 10px;
-  margin-bottom: 30px;
   width: 100px;
 }
 
@@ -300,12 +306,6 @@ input {
   padding: 5px;
   width: 200px;
   background-color: #FEFAF6;
-}
-/*container for the 2 forms in order to space them*/
-#form-container {
-  margin-left: 70px;
-  display: flex;
-  gap: 500px;
 }
 
 /*Categories*/
@@ -538,12 +538,21 @@ form button:hover {
   font-weight: bold;
   text-align: center;
 }
+
+#successmsg {
+  font-size: 15px;
+  font-family: Heebo, sans-serif;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
 /* כותרת מרכזית */
 .title {
   text-align: center;
   font-size: 28px;
   color: #001a54;
   margin-bottom: 20px;
+  font-family: Heebo,sans-serif;
 }
 
 /* רשת הסניפים */
@@ -568,16 +577,27 @@ form button:hover {
   background-color: #FEFAF6; /* רקע הכרטיס */
   color: #001a54; /* צבע הטקסט */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* אפקט צל */
-   direction: rtl; /* כיוון כתיבה מימין לשמאל */
+  direction: rtl; /* כיוון כתיבה מימין לשמאל */
   justify-content: flex-end; /* יישור הטקסט לימין */
-   width: 200px; /* רוחב קטן יותר */
-  font-family: Heebo;
+  width: 200px; /* רוחב קטן יותר */
+  font-family: Heebo, sans-serif;
+  animation: zoomIn 0.8s ease-out forwards;
+}
+
+@keyframes zoomIn {
+   0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .info-card h2 {
   margin: 0 0 10px;
   font-size: 20px;
   font-weight: bold;
+  font-family: Heebo, sans-serif;
 }
 
 .info-card p {

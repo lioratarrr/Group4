@@ -1,28 +1,19 @@
 const validateEmail =  email => /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*$/.test(email); //check email validity
 
-document.addEventListener('DOMContentLoaded', () => {
+
     // sign in variables
     const emailForSignin = document.querySelector('#email-for-sign-in');
     const passwordForSignin = document.querySelector('#passwordsi')
-    const buttons = document.querySelectorAll('.btn');
+    const button = document.querySelector('.btn');
     // error designs
     const error = document.createElement('div')
     error.setAttribute('class', 'error')
-    const container = document.querySelector('#sign-in')
-
-    // sign up variables
-    const firstName = document.querySelector('#first-name')
-    const lastName = document.querySelector('#last-name')
-    const emailForSignUp = document.querySelector('#email-for-sign-up')
-    const passwordForSignUp = document.querySelector('#passwordsu')
-    const errorsignup = document.createElement('div')
-    errorsignup.setAttribute('class', 'error')
-    const signupcontainer = document.querySelector('#sign-up')
+    const container = document.querySelector('.formcontainer')
 
         // sign in event listener
-        buttons[0].addEventListener('click', (e) => {
+        button.addEventListener('click', (e) => {
           e.preventDefault();
-          errorsignup.textContent = ''
+          error.textContent = ''
           if (emailForSignin.value === '' && passwordForSignin.value === '') {
         console.log('Both fields are empty');
         emailForSignin.style.borderColor = "Red";
@@ -60,54 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         error.textContent = '';
     }, 5000);
-});
-
-        buttons[1].addEventListener('click', (e) => { //sign up form even listener
-          e.preventDefault();
-          errorsignup.textContent = ''
-          let hasError = false; // boolean to know if there are any more errors
-          if (firstName.value === '') {
-              errorsignup.textContent += "נא למלא שם פרטי.      ";
-              hasError = true;
-              firstName.style.borderColor = "Red";
-          }
-
-          // Check last name
-          if (lastName.value === '') {
-              errorsignup.textContent += "נא למלא שם משפחה.     ";
-              hasError = true;
-              lastName.style.borderColor = "Red";
-          }
-
-          // Check email
-          if (emailForSignUp.value === ''||!validateEmail(emailForSignUp.value)) {
-              errorsignup.textContent += "נא למלא כתובת אימייל תקינה.     ";
-              hasError = true;
-              emailForSignUp.style.borderColor = "Red";
-          }
-
-          // Check password
-          if (passwordForSignUp.value === '') {
-              errorsignup.textContent += "נא למלא סיסמא.       ";
-              hasError = true;
-              passwordForSignUp.style.borderColor = "Red";
-          }
-
-          // If there are no errors, reset the border colors and log success
-          if (!hasError) {
-              console.log('Sign up completed');
-              firstName.style.borderColor = "#102C57";
-              lastName.style.borderColor = "#102C57";
-              emailForSignUp.style.borderColor = "#102C57";
-              passwordForSignUp.style.borderColor = "#102C57";
-          } else {
-              // Append the error message to the container
-              signupcontainer.appendChild(errorsignup);
-          }
-          // Set a timeout to clear the error message after 5 seconds
-          setTimeout(() => {
-              errorsignup.textContent = '';
-          }, 5000);
-        })
-  }
-)
+})
