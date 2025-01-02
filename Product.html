@@ -2,51 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <title>Gili's Jewelery</title>
-    <link rel="stylesheet" href="Style.css">
+  <title>Gili's Jewelery</title>
+  <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <div class="header-navbar">
 <!--   header and navbar combined-->
-   <div class="header-top">
-    <div class="header-icons">
-  <a href="https://www.instagram.com/gilisjewelry?igsh=bTYzamM1aW9wYjJ6" target="_blank"> <img src="elements/instagram%20bw.png" class="header-photo"> </a>
+  <div class="header-top">
+  <div class="header-icons">
+      <a href="https://www.instagram.com/gilisjewelry?igsh=bTYzamM1aW9wYjJ6" target="_blank"> <img src="elements/instagram%20bw.png" class="header-photo" alt = "Instagram logo"> </a>
 <!--      instagram logo-->
-   <a href="Contact-Us.html"><img src="elements/phone.png" class="header-photo" alt = "Contact us logo"></a>
+      <a href="Contact-Us.html"><img src="elements/phone.png" class="header-photo" alt = "Contact us logo"></a>
 <!--      contact logo-->
-   <a href="Branches.html"><img src="elements/location.png" class="header-photo" alt = "Location logo"> </a>
+      <a href="Branches.html"><img src="elements/location.png" class="header-photo" alt = "Location logo"> </a>
 <!--      locations logo-->
     </div>
-  <header class = "header">Gili's Jewelery</header>
-     <a href="Sign-in.html"><img src="elements/profile.png" class="header-photo" alt = "Account logo"></a>
+    <header class = "header">Gili's Jewelery</header>
+    <a href="Sign-in.html"><img src="elements/profile.png" class="header-photo" alt ="Account logo"></a>
 <!--     sign in logo-->
-      <span class="hamburger">☰</span>
+    <span class="hamburger">☰</span>
 <!--     for smaller screens-->
-   </div>
+  </div>
 
   <nav class = navbar>
 <!--    navigation bars + links-->
-  <ul>
-    <li><a href="Sale.html"> Sale</a></li>
-    <li><a href="Bracelets.html"> צמידים</a></li>
-    <li><a href="Rings.html">טבעות</a></li>
-    <li><a href="Necklaces.html">שרשראות</a></li>
-    <li><a href="Rings.html">עגילים</a></li>
-    <li><a href="Home%20Page.html">דף הבית</a></li>
-  </ul>
-</nav>
+    <ul>
+      <li><a href="Sale.html"> Sale</a></li>
+      <li><a href="Bracelets.html"> צמידים</a></li>
+      <li><a href="Rings.html">טבעות</a></li>
+      <li><a href="Necklaces.html">שרשראות</a></li>
+      <li><a href="Rings.html">עגילים</a></li>
+      <li><a href="Home%20Page.html">דף הבית</a></li>
+    </ul>
+  </nav>
 </div>
 <br>
+
  <div class="product-container">
-  <div class="product-info">
+  <div id="product-info">
     <h1>שם המוצר</h1>
-    <p>תיאור מוצר</p>
+    <div>תיאור מוצר</div>
     <form>
       <label for="color">צבע</label>
       <select id="color">
         <option>בחר צבע</option>
-        <option>אדום</option>
-        <option>כחול</option>
+        <option>זהב</option>
+        <option>כסף</option>
+        <option>זהב ורוד</option>
       </select>
 
       <label for="quantity">כמות</label>
@@ -58,14 +60,18 @@
 
       <label for="branch">סניף</label>
       <select id="branch">
-        <option>בחר סניף</option>
-        <option>תל אביב</option>
-        <option>חיפה</option>
+          <option value="סניפים" disabled selected>סניפים</option>
+          <option value="באר שבע">באר שבע</option>
+          <option value="תל אביב">תל אביב</option>
+          <option value="רחובות">רחובות</option>
+          <option value="מודיעין">מודיעין</option>
+          <option value="ירושלים">ירושלים</option>
+          <option value="אשקלון">אשקלון</option>
       </select>
 
       <div class = "checkbox-container">
-        <label for="pickup">אני רוצה לאסוף מהחנות</label>
         <input type="checkbox" id="pickup">
+        <label for="pickup">אני רוצה לאסוף מהחנות</label>
       </div>
       <button type="button" class = "Presave">שריין עכשיו</button>
     </form>
@@ -74,14 +80,15 @@
     <p>תמונה</p>
   </div>
 </div>
-<script src = "Navigation.js"></script>
+
+<script src = "navigation.js"></script>
+<script src = "product.js"></script>
+
    <!--footer-->
 <footer class = "ending">
   <img src="elements/instagram.png" class="photo" alt = "Instagram logo">
   <span> -חפשו אותנו גם ב</span>
   <img src="elements/heart.webp" class="photo" alt = "Heart lgo">
 </footer>
-<script src = "Product.js"></script>
-
 </body>
 </html>
