@@ -538,6 +538,60 @@ form button:hover {
   font-weight: bold;
   text-align: center;
 }
+/* כותרת מרכזית */
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #001a54;
+  margin-bottom: 20px;
+}
 
+/* רשת הסניפים */
+.branches-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 עמודות */
+  gap: 5px; /* מרווחים בין הכרטיסים */
+  justify-content: center; /* מיקום במרכז */
+  padding: 5px;
+  max-width: 900px; /* רוחב מקסימלי */
+  margin: 0 auto; /* מרכוז בעמוד */
+ row-gap: 30px;
+  column-gap: 10px;
+}
+
+/* כרטיס מידע */
+.info-card {
+  border: 2px solid #001a54; /* צבע המסגרת */
+  border-radius: 15px; /* פינות מעוגלות */
+  padding: 10px;
+  text-align: center;
+  background-color: #FEFAF6; /* רקע הכרטיס */
+  color: #001a54; /* צבע הטקסט */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* אפקט צל */
+   direction: rtl; /* כיוון כתיבה מימין לשמאל */
+  justify-content: flex-end; /* יישור הטקסט לימין */
+   width: 200px; /* רוחב קטן יותר */
+  font-family: Heebo;
+}
+
+.info-card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info-card p {
+  margin: 8px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* יישור האייקונים לטקסט */
+}
+
+.info-card i {
+  margin-left: 8px;
+  font-size: 18px; /* גודל האייקונים */
+  color: #001a54; /* צבע האייקונים */
+}
 
 
