@@ -348,7 +348,7 @@ input {
   margin-right: 40px;
 }
 
-/*דנה תוסיפי הערות*/
+/*For All*/
 .my-account {
     margin: 30px auto;
     padding: 20px;
@@ -357,7 +357,7 @@ input {
     direction: rtl;
     text-align: right;
 }
-
+/*For the title*/
 .my-account h2 {
     color: #1a2a4a;
     font-size: 2em;
@@ -366,7 +366,7 @@ input {
     text-align: right;
 }
 
-/* עיצוב החלקים */
+/* For the sections */
 .account-section {
     display: flex;
     justify-content: space-between;
@@ -572,7 +572,7 @@ form button:hover {
   margin-bottom: 15px;
 }
 
-/* כותרת מרכזית */
+/*Main Title */
 .title {
   text-align: center;
   font-size: 28px;
@@ -581,31 +581,32 @@ form button:hover {
   font-family: Heebo,sans-serif;
 }
 
-/* רשת הסניפים */
+/* the Branches */
 .branches-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 עמודות */
-  gap: 5px; /* מרווחים בין הכרטיסים */
-  justify-content: center; /* מיקום במרכז */
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  justify-content: center;
   padding: 5px;
-  max-width: 900px; /* רוחב מקסימלי */
-  margin: 0 auto; /* מרכוז בעמוד */
+  max-width: 900px;
+  margin: 0 auto;
  row-gap: 30px;
   column-gap: 10px;
+   flex-wrap: wrap;
 }
 
-/* כרטיס מידע */
+/* info Card */
 .info-card {
-  border: 2px solid #001a54; /* צבע המסגרת */
-  border-radius: 15px; /* פינות מעוגלות */
+  border: 2px solid #001a54;
+  border-radius: 15px;
   padding: 10px;
   text-align: center;
-  background-color: #FEFAF6; /* רקע הכרטיס */
-  color: #001a54; /* צבע הטקסט */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* אפקט צל */
-  direction: rtl; /* כיוון כתיבה מימין לשמאל */
-  justify-content: flex-end; /* יישור הטקסט לימין */
-  width: 200px; /* רוחב קטן יותר */
+  background-color: #FEFAF6;
+  color: #001a54;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  justify-content: flex-end;
+  width: 200px;
   font-family: Heebo, sans-serif;
   animation: zoomIn 0.8s ease-out forwards;
 }
@@ -625,19 +626,19 @@ form button:hover {
   font-weight: bold;
   font-family: Heebo, sans-serif;
 }
-
+/* for address and phone */
 .info-card p {
   margin: 8px 0;
   font-size: 16px;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* יישור האייקונים לטקסט */
+  justify-content: flex-start;
 }
-
+/* for Icons */
 .info-card i {
   margin-left: 8px;
-  font-size: 18px; /* גודל האייקונים */
-  color: #001a54; /* צבע האייקונים */
+  font-size: 18px;
+  color: #001a54;
 }
 
 
