@@ -415,7 +415,7 @@ input {
   padding: 20px;
 }
 
-.product-image {
+.product-image img{
   width: 400px;
   height: 400px;
   background-color: #fff;

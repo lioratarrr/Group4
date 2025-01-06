@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-   <title>Gili's Jewelery</title>
-    <link rel="stylesheet" href="Style.css">
+  <title>Gili's Jewelery</title>
+  <link rel="stylesheet" href="Style.css">
 </head>
 <body>
   <div class="header-navbar">
@@ -12,13 +12,13 @@
     <div class="header-icons">
    <a href="https://www.instagram.com/gilisjewelry?igsh=bTYzamM1aW9wYjJ6" target="_blank"> <img src="elements/instagram%20bw.png" class="header-photo" alt = "Instagram logo"> </a>
 <!--      instagram logo-->
-   <a href="Contact-Us.html"><img src="elements/phone.png" class="header-photo" alt ="Contact logo"></a>
+   <a href="contact-us.html"><img src="elements/phone.png" class="header-photo" alt ="Contact logo"></a>
 <!--      contact logo-->
    <img src="elements/location.png" class="header-photo" alt = "Locations logo">
 <!--      locations logo-->
     </div>
   <header class = "header">Gili's Jewelery</header>
-     <a href="Sign-in.html"><img src="elements/profile.png" class="header-photo" alt = "account logo"></a>
+     <a href="sign-in.html"><img src="elements/profile.png" class="header-photo" alt = "account logo"></a>
 <!--     sign in logo-->
      <span class="hamburger">☰</span>
 <!--     for smaller screens-->
@@ -27,11 +27,11 @@
   <nav class = navbar>
 <!--    navigation bars + links-->
   <ul>
-    <li><a href="Sale.html"> Sale</a></li>
-    <li><a href="Bracelets.html"> צמידים</a></li>
-    <li><a href="Rings.html">טבעות</a></li>
-    <li><a href="Necklaces.html">שרשראות</a></li>
-    <li><a href="Rings.html">עגילים</a></li>
+    <li><a href="sale.html"> Sale</a></li>
+    <li><a href="bracelets.html"> צמידים</a></li>
+    <li><a href="rings.html">טבעות</a></li>
+    <li><a href="necklaces.html">שרשראות</a></li>
+    <li><a href="earings.html">עגילים</a></li>
     <li><a href="Home%20Page.html">דף הבית</a></li>
   </ul>
 </nav>
@@ -58,34 +58,36 @@
     <h2 class="Product_Name">צמיד דנה</h2>
 <!--    product card- name, description -multiple times-->
     <p class="Product_Description">תיאור מוצר</p>
-    <img src="jewelry/Bracelets/צמיד%20דנה%20זהב.png" alt="צמיד דנה" class="Product_Image">
-    <button class = "btn"><a href="Product.html"> שריין עכשיו</a></button>
+    <img src="jewelery/Bracelets/danagold.png" alt="צמיד דנה" class="Product_Image">
+    <button class = "btn" onclick="presaveProduct('צמיד דנה','jewelery/Bracelets/danagold.png')"><a href="product.html"> שריין עכשיו</a></button>
   </div>
   <div class="Product_Card">
     <h2 class="Product_Name">צמיד לב </h2>
     <p class="Product_Description">תיאור מוצר</p>
-    <img src="jewelry/Bracelets/צמיד%20לב%20זהב.png" alt="צמיד לב זהב" class="Product_Image">
-    <button class = "btn"><a href="Product.html"> שריין עכשיו</a></button>
+    <img src="jewelery/Bracelets/heartgold.png" alt="צמיד לב זהב" class="Product_Image">
+    <button class = "btn" onclick="presaveProduct('צמיד לב','jewelery/Bracelets/heartgold.png')"><a href="product.html"> שריין עכשיו</a></button>
   </div>
    <div class="Product_Card">
     <h2 class="Product_Name">צמיד מגן דוד</h2>
     <p class="Product_Description">תיאור מוצר</p>
-    <img src="jewelry/Bracelets/צמיד%20מגן%20דוד%20זהב.png" alt="דצמיד מגן דוד זהב" class="Product_Image">
-    <button class = "btn"><a href="Product.html"> שריין עכשיו</a></button>
+    <img src="jewelery/Bracelets/davidgold.png" alt="צמיד מגן דוד זהב" class="Product_Image">
+    <button class = "btn" onclick="presaveProduct('צמיד מגן דוד','jewelery/Bracelets/davidgold.png')"><a href="product.html"> שריין עכשיו</a></button>
   </div>
    <div class="Product_Card">
     <h2 class="Product_Name">צמיד שיבולים</h2>
     <p class="Product_Description">תיאור מוצר</p>
-    <img src="jewelry/Bracelets/צמיד%20שיבולים%20זהב.png" alt="צמיד שיבולים זהב" class="Product_Image">
-    <button class = "btn"><a href="Product.html"> שריין עכשיו</a></button>
+    <img src="jewelery/Bracelets/oatgold.png" alt="צמיד שיבולים זהב" class="Product_Image">
+    <button class = "btn" onclick="presaveProduct('צמיד שיבולים','jewelery/Bracelets/oatgold.png')"><a href="product.html"> שריין עכשיו</a></button>
   </div>
    <div class="Product_Card">
     <h2 class="Product_Name">צמיד שם</h2>
     <p class="Product_Description">תיאור מוצר</p>
-    <img src="jewelry/Bracelets/צמיד%20שם%20זהב.png" alt="צמיד שם זהב" class="Product_Image">
-    <button class = "btn"><a href="Product.html"> שריין עכשיו</a></button>
+    <img src="jewelery/Bracelets/namegold.png" alt="צמיד שם זהב" class="Product_Image">
+    <button class = "btn" onclick="presaveProduct('צמיד שם','jewelery/Bracelets/namegold.png')"><a href="product.html"> שריין עכשיו</a></button>
   </div>
 </div>
+  <script src = "product-page.js"></script>
+  <script src = "navigation.js"></script>
 <!-- footer-->
 <footer class = "ending">
   <img src="elements/instagram.png" class="photo" alt ="Instagram logo">

@@ -1,3 +1,29 @@
+const presaveProduct = (name, imageURL) => {
+  localStorage.setItem('productName', name);
+  localStorage.setItem('productImage', imageURL);
+  window.location.href = 'product.html';
+}
+
+const productName = localStorage.getItem('productName');
+const productImage = localStorage.getItem('productImage');
+const productDescription = localStorage.getItem('productDescription') || 'תיאור המוצר לא זמין';
+
+// Dynamically update the product page
+if (productName && productImage) {
+  document.getElementById('product-name').textContent = productName;
+  document.getElementById('product-description').textContent = productDescription;
+
+  // Select the first element with the class 'product-image' and update the src
+  const productImageElement = document.querySelector('.product-image img');  // Use the correct class and target the img tag
+  if (productImageElement) {
+    productImageElement.src = productImage;
+    productImageElement.alt = productName;
+  }
+} else {
+  // Fallback if no product data is available
+  document.getElementById('product-info').innerHTML = '<p>אין מוצר שנבחר.</p>';
+}
+
 const presave = document.querySelector('.Presave')
 const container = document.querySelector('#product-info')
 const color = document.querySelector('#color')
