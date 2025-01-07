@@ -1,29 +1,18 @@
-const presaveProduct = (name, imageURL) => {
-  localStorage.setItem('productName', name);
-  localStorage.setItem('productImage', imageURL);
+// set up variable from the previous page to plant in the product page
+const presaveProduct = (name, imageURLgold, imageURLsilver) => {
+  localStorage.setItem('productName', name)
+  localStorage.setItem('productImageGold', imageURLgold)
+  localStorage.setItem('productImageSilver', imageURLsilver)
   window.location.href = 'product.html';
 }
+// set up variables from the local storage
+const productName = localStorage.getItem('productName')
+const productImageGold = localStorage.getItem('productImageGold')
+const productImageSilver = localStorage.getItem('productImageSilver')
+const productDescription = localStorage.getItem('productDescription') || 'תיאור המוצר לא זמין'
 
-const productName = localStorage.getItem('productName');
-const productImage = localStorage.getItem('productImage');
-const productDescription = localStorage.getItem('productDescription') || 'תיאור המוצר לא זמין';
-
-// Dynamically update the product page
-if (productName && productImage) {
-  document.getElementById('product-name').textContent = productName;
-  document.getElementById('product-description').textContent = productDescription;
-
-  // Select the first element with the class 'product-image' and update the src
-  const productImageElement = document.querySelector('.product-image img');  // Use the correct class and target the img tag
-  if (productImageElement) {
-    productImageElement.src = productImage;
-    productImageElement.alt = productName;
-  }
-} else {
-  // Fallback if no product data is available
-  document.getElementById('product-info').innerHTML = '<p>אין מוצר שנבחר.</p>';
-}
-
+// create connection to the elements in the page + errors and success
+const productImageElement = document.querySelector('.product-image img')
 const presave = document.querySelector('.Presave')
 const container = document.querySelector('#product-info')
 const color = document.querySelector('#color')
@@ -34,47 +23,98 @@ const error = document.createElement('div')
 error.setAttribute('class', 'error')
 success.setAttribute('class', 'success')
 
-presave.addEventListener('click',(e) => {
-  e.preventDefault()
-  let hasError = false; // boolean to know if there are any more errors
-  if (color.value === 'בחר צבע') {
-    console.log("no color picked")
-    error.textContent += "נא לבחור צבע.      ";
-    hasError = true;
-    color.style.borderColor = "Red";
-  }
+// Dynamically update the product page
+if (productName) {
+  document.getElementById('product-name').textContent = productName;
+  document.getElementById('product-description').textContent = productDescription;
 
-  // Check last name
-  if (quantity.value === 'בחר כמות') {
-    console.log("no quantity picked")
-    error.textContent += "נא לבחור כמות.     ";
-    hasError = true;
-    quantity.style.borderColor = "Red";
+  if (productImageElement) {
+    // Default to the first available image
+    if (productImageGold) {
+      productImageElement.src = productImageGold;
+      productImageElement.alt = `${productName} זהב`;
+    } else if (productImageSilver) {
+      productImageElement.src = productImageSilver;
+      productImageElement.alt = `${productName} כסף`;
+    } else {
+      productImageElement.src = ''; // No image available
+      productImageElement.alt = 'תמונה לא זמינה';
+    }
   }
-
-  // Check email
-  if (branch.value === 'בחר סניף' ) {
-    console.log("no branch picked")
-    error.textContent += "נא לבחור סניף.     ";
-    hasError = true;
-    branch.style.borderColor = "Red";
-  }
-
-  if (!hasError) {
-    success.textContent = "המוצר שוריין בהצלחה"
-    container.appendChild(success)
-    console.log("Presave- success")
-    setTimeout(() => { // timeout message
-      success.textContent = '';
-    }, 2000)
-  }
-
-  else {
-      container.appendChild(error)
-  }
-
-  setTimeout(() => {
-      error.textContent = '';
-  }, 5000)
+  } else {
+  // Fallback if no product data is available
+  document.getElementById('product-info').innerHTML = '<p>אין מוצר שנבחר.</p>';
 }
-)
+
+// removing unavailable options
+if (!productImageGold) {
+  console.log("Removing gold option");
+  color.querySelector('option[value="זהב"]').remove()
+}
+
+if (!productImageSilver) {
+  console.log("Removing silver option");
+  color.querySelector('option[value="כסף"]').remove();
+}
+
+// change the options so if only one is available - preselect it
+if (productImageGold && !productImageSilver) {
+  color.value = 'זהב';
+} else if (!productImageGold && productImageSilver) {
+  color.value = 'כסף';
+}
+// change the photo according to the choice
+color.addEventListener('change', (e)=> {
+  e.preventDefault()
+  if (color.value ===  'כסף') {
+  console.log("color change silver")
+  productImageElement.src = productImageSilver
+    productImageElement.alt = `${productName} כסף - `
+  }
+})
+  // check for validity of the order
+  presave.addEventListener('click',(e) => {
+    e.preventDefault()
+    let hasError = false; // boolean to know if there are any more errors
+    //check color
+    if (color.value === 'בחר צבע') {
+      console.log("no color picked")
+      error.textContent += "נא לבחור צבע.      "
+      hasError = true;
+      color.style.borderColor = "Red"
+    }
+
+    // Check quantity
+    if (quantity.value === 'בחר כמות') {
+      console.log("no quantity picked")
+      error.textContent += "נא לבחור כמות.     "
+      hasError = true
+      quantity.style.borderColor = "Red"
+    }
+
+    // Check branch
+    if (branch.value === 'בחר סניף' ) {
+      console.log("no branch picked")
+      error.textContent += "נא לבחור סניף.     "
+      hasError = true
+      branch.style.borderColor = "Red"
+    }
+
+    if (!hasError) {
+      success.textContent = "המוצר שוריין בהצלחה"
+      container.appendChild(success)
+      console.log("Presave- success")
+      setTimeout(() => { // timeout message
+        success.textContent = ''
+      }, 2000)
+    }
+
+    else {
+        container.appendChild(error)
+    }
+
+    setTimeout(() => {
+        error.textContent = ''
+    }, 5000)
+  }
+  )

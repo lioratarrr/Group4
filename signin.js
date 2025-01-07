@@ -1,6 +1,6 @@
 const validateEmail =  email => /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*$/.test(email); //check email validity
 
-    // sign in variables
+// sign in variables
 const emailForSignin = document.querySelector('#email-for-sign-in');
 const passwordForSignin = document.querySelector('#passwordsi')
 const button = document.querySelector('.btn');
