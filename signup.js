@@ -1,10 +1,11 @@
 const validateEmail =  email => /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*$/.test(email); //check email validity
+const isValidName = name => /^[a-zA-Zא-ת]+$/.test(name.trim()) && name.trim().length > 0;
 // set variables
 const firstName = document.querySelector('#first-name')
 const lastName = document.querySelector('#last-name')
 const emailForSignUp = document.querySelector('#email-for-sign-up')
 const passwordForSignUp = document.querySelector('#passwordsu')
-const signupcontainer = document.querySelector('.formcontainer')
+const container = document.querySelector('.formcontainer')
 const button = document.querySelector('.btn');
 // set success + error designs
 const error = document.createElement('div')
@@ -17,17 +18,17 @@ button.addEventListener('click', (e) => { //sign up form even listener
   e.preventDefault();
   error.textContent = ''
   let hasError = false; // boolean to know if there are any more errors
-  if (firstName.value === '') {
+  if (firstName.value === ''||!isValidName(firstName.value)) {
     console.log("no first name")
-    error.textContent += "נא למלא שם פרטי.      ";
+    error.innerHTML += ".נא למלא שם פרטי תקין<br>";
     hasError = true;
     firstName.style.borderColor = "Red";
   }
 
   // Check last name
-  if (lastName.value === '') {
+  if (lastName.value === ''||!isValidName(lastName.value)) {
     console.log("no last name")
-    error.textContent += "נא למלא שם משפחה.     ";
+    error.innerHTML += ".נא למלא שם משפחה תקין<br>";
     hasError = true;
     lastName.style.borderColor = "Red";
   }
@@ -35,7 +36,7 @@ button.addEventListener('click', (e) => { //sign up form even listener
   // Check email
   if (emailForSignUp.value === '' || !validateEmail(emailForSignUp.value)) {
     console.log("no valid email")
-    error.textContent += "נא למלא כתובת אימייל תקינה.     ";
+    error.innerHTML += ".נא למלא כתובת אימייל תקינה<br>";
     hasError = true;
     emailForSignUp.style.borderColor = "Red";
   }
@@ -43,7 +44,7 @@ button.addEventListener('click', (e) => { //sign up form even listener
   // Check password
   if (passwordForSignUp.value === '') {
     console.log("no password")
-    error.textContent += "נא למלא סיסמא.       ";
+    error.innerHTML += ".נא למלא סיסמא<br>";
     hasError = true;
     passwordForSignUp.style.borderColor = "Red";
   }
@@ -61,7 +62,7 @@ button.addEventListener('click', (e) => { //sign up form even listener
 
   else {
     // Append the error message to the container
-    signupcontainer.appendChild(error);
+    container.appendChild(error);
     }
     // Set a timeout to clear the error message after 5 seconds
     setTimeout(() => {

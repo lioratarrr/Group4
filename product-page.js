@@ -1,8 +1,9 @@
 // set up variable from the previous page to plant in the product page
-const presaveProduct = (name, imageURLgold, imageURLsilver) => {
+const presaveProduct = (name, imageURLgold, imageURLsilver, description) => {
   localStorage.setItem('productName', name)
   localStorage.setItem('productImageGold', imageURLgold)
   localStorage.setItem('productImageSilver', imageURLsilver)
+  localStorage.setItem('productDescription', description)
   window.location.href = 'product.html';
 }
 // set up variables from the local storage

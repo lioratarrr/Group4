@@ -21,21 +21,21 @@ const isFullName = value => typeof value === 'string' &&
       errormsg.textContent=''
       let haserror = false; // boolean to know if there are any more errors
         if (fullName.value === '' || !isFullName(fullName.value)) { //check full name
-          errormsg.textContent += "נא למלא שם מלא.      "
+          errormsg.textContent += ".נא למלא שם מלא      "
           haserror = true;
           fullName.style.borderColor = "Red"
           console.log("full name null / doesn't meets requirements")
         }
 
         if (phone.value === '' || !validatePhoneNumber(phone.value)) { // check phone
-          errormsg.textContent += "נא למלא מספר טלפון תקין.     ";
+          errormsg.textContent += ".נא למלא מספר טלפון תקין     ";
           haserror = true;
           phone.style.borderColor = "Red"
           console.log("phone null / not valid")
         }
 
         if (info.value === '') { //check info
-          errormsg.textContent += "נא למלא את פרטי הפניה.     ";
+          errormsg.textContent += ".נא למלא את פרטי הפניה     ";
           haserror = true;
           info.style.borderColor = "Red"
           infocontainer.appendChild(errormsg)
