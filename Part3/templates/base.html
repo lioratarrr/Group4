@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Gili's Jewelery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}"/>
+  {% block css%}
+  {% endblock %}
 </head>
 <body>
-$END$
+{% include ('components/navigation.html') %}
+
+{% block content %}
+{%endblock%}
+
+<script src = "{{ url_for('static', filename='js/navigation.js')}}"></script>
+<!--<script src = "product-page.js"></script>-->
+<!--  footer-->
+<footer class = "ending">
+{%  include ('components/footer.html') %}
+</footer>
 </body>
 </html>

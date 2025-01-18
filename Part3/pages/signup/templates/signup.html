@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('signin.static', filename='css/signin.css')}}"/>
+{% endblock %}
+{% block content %}
+<h2>Welcome!</h2>
+   <form>
+<!--     sign up form-->
+     <div class = "formcontainer">
+       <p> ?פעם ראשונה כאן</p>
+       <p class = "sign"> להרשמה</p>
+       <div class ="row">
+         <label for ="first-name">First Name</label>
+         <input type="text" id="first-name" name="first-name">
+       </div>
+       <div class ="row">
+         <label for ="last-name">Last Name</label>
+         <input type="text" id="last-name" name="last-name">
+       </div>
+       <div class ="row">
+         <label for ="email-for-sign-up">Email</label>
+         <input type="email" id="email-for-sign-up" name="email">
+       </div>
+       <div class = "row">
+         <label for="passwordsu">Password</label>
+         <input type="password" id="passwordsu" name="password">
+       </div>
+       <div>
+         <input type="button" id ="signupbtn" value="הרשמה" class = "btn">
+       </div>
+    </div>
+  </form>
+<script src = "{{ url_for('signup.static', filename='js/signup.js')}}"></script>
+{% endblock  %}
+
+
+

@@ -1,7 +1,7 @@
 /*!*english font*!*/
 @font-face {
   font-family: 'Tenor Sans';
-  src:url('../Group4/Fonts/TenorSans-Regular.ttf') format('truetype');
+  src:url('Group4/Part2/Fonts/TenorSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -9,7 +9,7 @@
 /*hebrew font*/
 @font-face {
   font-family: "Heebo";
-  src:url('../Group4/Fonts/Heebo-Regular.ttf') format('truetype');
+  src:url('Group4/Part2/Fonts/Heebo-Regular.ttf') format('truetype');
 }
 
 @media (max-width: 1100px) {
@@ -183,7 +183,7 @@ a:hover {
   margin-top: 0;
 }
 
-/*products container*/
+/*category container*/
 .Products {
   display: flex;
   justify-content: center;
@@ -233,7 +233,7 @@ h2 {
   text-align: center;
 }
 
-/*categories for products*/
+/*categories for category*/
 .photo {
   margin-left: 8px;
   width: 20px;
@@ -491,6 +491,32 @@ form button {
 
 form button:hover {
   background-color: #004080;
+}
+
+@media (max-width: 780px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    order: -1; /* Ensure the image stays on top */
+    margin-bottom: 20px;
+  }
+
+  .product-info {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  form button {
+    width: 100%;
+    align-self: center;
+  }
 }
 
 .account-section {

@@ -76,11 +76,12 @@ color.addEventListener('change', (e)=> {
   // check for validity of the order
   presave.addEventListener('click',(e) => {
     e.preventDefault()
+    error.textContent =''
     let hasError = false; // boolean to know if there are any more errors
     //check color
     if (color.value === 'בחר צבע') {
       console.log("no color picked")
-      error.textContent += "נא לבחור צבע.      "
+      error.textContent += ".נא לבחור צבע      "
       hasError = true;
       color.style.borderColor = "Red"
     }
@@ -88,7 +89,7 @@ color.addEventListener('change', (e)=> {
     // Check quantity
     if (quantity.value === 'בחר כמות') {
       console.log("no quantity picked")
-      error.textContent += "נא לבחור כמות.     "
+      error.textContent += ".נא לבחור כמות     "
       hasError = true
       quantity.style.borderColor = "Red"
     }
@@ -96,7 +97,7 @@ color.addEventListener('change', (e)=> {
     // Check branch
     if (branch.value === 'בחר סניף' ) {
       console.log("no branch picked")
-      error.textContent += "נא לבחור סניף.     "
+      error.textContent += ".נא לבחור סניף     "
       hasError = true
       branch.style.borderColor = "Red"
     }
@@ -116,6 +117,6 @@ color.addEventListener('change', (e)=> {
 
     setTimeout(() => {
         error.textContent = ''
-    }, 5000)
+    }, 2000)
   }
   )

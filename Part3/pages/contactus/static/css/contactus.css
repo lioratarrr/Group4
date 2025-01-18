@@ -1,0 +1,61 @@
+/*create a design for the contact us box*/
+#contactus {
+  background-color: #102C57;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 20px;
+}
+
+/*text for introducing*/
+.opening {
+  font-family: Heebo, sans-serif;
+  color: #FEFAF6;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/*second paragraph*/
+.opening p {
+  font-family: Heebo, sans-serif;
+  color: #FEFAF6;
+  font-size: 20px;
+  text-align: center;
+}
+
+/*contact us form design*/
+#contactusform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*design the label of the full name, contact and the reason for reaching*/
+.rowcu label {
+  color: #FEFAF6;
+  font-size: 15px;
+  align-items: flex-start;
+}
+
+/*make the reason of reaching out bigger*/
+#info {
+  width: 400px;
+  height: 100px
+}
+
+#btn-submit{
+  font-family: "Tenor Sans", sans-serif;
+  background-color: #FEFAF6;
+  color: #102C57;
+  width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#btn-submit:hover {
+  background-color: #102C57;
+  color: #FEFAF6;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

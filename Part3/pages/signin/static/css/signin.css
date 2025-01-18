@@ -1,0 +1,41 @@
+/*container for sign in*/
+.formcontainer {
+  position: relative;
+  color: #102C57;
+  font-family: Heebo, sans-serif;
+  text-align: center;
+  align-items: center;
+}
+
+/*header for sign in /up*/
+#signin, #signup {
+  text-decoration:underline;
+}
+
+/*form for sign in and sign up design*/
+form {
+  color: #102C57;
+  font-family: "Tenor Sans", "Tenor Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center;
+  margin: 0;
+}
+
+/*rows design- email header, first name, last name etc*/
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+
+/*label design*/
+label {
+  margin-right: 10px;
+  width: 100px;
+}
+
+

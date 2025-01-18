@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css')}}"/>
+{% endblock %}
+{% block content %}
+<div class="product-container">
+  <div id="product-info">
+    <h1 id="product-name">שם המוצר</h1>
+    <div id="product-description">תיאור מוצר</div>
+    <form>
+<!--      choose color-->
+      <label for="color">צבע</label>
+      <select id="color">
+        <option value="בחר צבע" disabled selected>בחר צבע</option>
+        <option value = "זהב">זהב</option>
+        <option value = "כסף">כסף</option>
+      </select>
+<!--choose quantity-->
+      <label for="quantity">כמות</label>
+      <select id="quantity">
+         <option value="בחר כמות" disabled selected>בחר כמות</option>
+        <option>1</option>
+        <option>2</option>
+      </select>
+<!--choose branch-->
+      <label for="branch">סניף</label>
+      <select id="branch">
+          <option value="בחר סניף" disabled selected>בחר סניף</option>
+          <option value="באר שבע">באר שבע</option>
+          <option value="תל אביב">תל אביב</option>
+          <option value="רחובות">רחובות</option>
+          <option value="מודיעין">מודיעין</option>
+          <option value="ירושלים">ירושלים</option>
+          <option value="אשקלון">אשקלון</option>
+      </select>
+<!--do you want to pick up?-->
+      <div class = "checkbox-container">
+        <input type="checkbox" id="pickup">
+        <label for="pickup">אני רוצה לאסוף מהחנות</label>
+      </div>
+      <button type="button" class = "Presave">שריין עכשיו</button>
+    </form>
+  </div>
+  <div class="product-image">
+    <img src = "" alt = "Product Image" />
+  </div>
+</div>
+<script src = "{{ url_for('product.static', filename='js/product.js')}}"></script>
+{% endblock  %}
+

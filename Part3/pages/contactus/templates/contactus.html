@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('contactus.static', filename='css/contactus.css')}}"/>
+{% endblock %}
+{% block content %}
+<div id = contactus>
+     <div class = "opening">  !אנחנו פה בשבילך
+     <p>(: ניתן למלא את הפרטים כאן כדי שנציג יחזור אלייך, או לחלופין לפנות ישירות לסניפים </p>
+       <form id = contactusform>
+        <div class ="rowcu">
+          <input type="text" id="full-name" name="full-name">
+           <label for ="full-name">שם מלא</label>
+       </div>
+         <div class ="rowcu">
+           <input type="tel" id="phone" name="phone">
+            <label for ="phone">טלפון לחזרה</label>
+         </div>
+         <div class ="rowcu">
+           <input type="text" id="info" name="info">
+            <label for ="info">?במה תרצי שנעזור לך</label>
+           <div>
+             <input type="button" value=Submit id = "btn-submit">
+           </div>
+         </div>
+       </form>
+       </div>
+   </div>
+<script src = "{{ url_for('contactus.static', filename='js/contactus.js')}}"></script>
+{% endblock  %}
