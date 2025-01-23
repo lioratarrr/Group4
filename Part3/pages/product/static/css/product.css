@@ -92,3 +92,28 @@ form button:hover {
   background-color: #004080;
 }
 
+@media (max-width: 780px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    order: -1; /* Ensure the image stays on top */
+    margin-bottom: 20px;
+  }
+
+  .product-info {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  form button {
+    width: 100%;
+    align-self: center;
+  }
+}
