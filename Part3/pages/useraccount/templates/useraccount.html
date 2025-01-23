@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
-
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('useraccount.static', filename='css/useraccount.css')}}"/>
+{% endblock %}
 {% block content %}
-<h1> hi user account</h1>
+<div class="my-account">
+    <h2>החשבון שלי</h2>
+    <div class="account-section">
+        <div class="right-section">
+            <div class="account-item"><i class="fa-solid fa-chevron-down"></i> הזמנות אחרונות:</div>
+            <div class="account-item"><i class="fa-solid fa-chevron-down"></i> כתובות אחרונות:</div>
+        </div>
+        <div class="left-section">
+            <div class="account-item"><i class="fa-solid fa-chevron-down"></i> פרטים אישיים:</div>
+        </div>
+    </div>
+</div>
 {% endblock  %}
 
 

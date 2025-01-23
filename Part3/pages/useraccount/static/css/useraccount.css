@@ -1,0 +1,58 @@
+/*For All*/
+.my-account {
+    margin: 30px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    direction: rtl;
+    text-align: right;
+}
+/*For the title*/
+.my-account h2 {
+    color: #1a2a4a;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* For the sections */
+.account-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-right: 20px;
+    margin-left: 0;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+     margin-right: 20px;
+}
+
+.account-item {
+    font-size: 1.3em;
+    color: #1a2a4a;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+}
+
+.account-item i {
+    font-size: 1.2em;
+    color: #1a2a4a;
+    margin-left: 10px;
+}

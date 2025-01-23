@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('branches.static', filename='css/branches.css')}}"/>
+{% endblock %}
 
 {% block content %}
-<h1> hi branches</h1>
+     <h1 class="title">סניפים</h1>
+  <div class="branches-container">
+    <div class="info-card">
+      <h2>תל אביב</h2>
+      <p><i class="fas fa-map-marker-alt"></i> רחוב XXXX</p>
+      <p><i class="fas fa-phone-alt"></i>  XX-XXXXXXX</p>
+    </div>
+    <div class="info-card">
+      <h2>מודיעין</h2>
+      <p><i class="fas fa-map-marker-alt"></i> רחוב XXXX</p>
+      <p><i class="fas fa-phone-alt"></i>  XX-XXXXXXX</p>
+    </div>
+    <div class="info-card">
+      <h2>באר שבע</h2>
+      <p><i class="fas fa-map-marker-alt"></i> רחוב XXXX</p>
+      <p><i class="fas fa-phone-alt"></i>  XX-XXXXXXX</p>
+    </div>
+    <div class="info-card">
+      <h2>אשקלון</h2>
+      <p><i class="fas fa-map-marker-alt"></i> רחוב XXXX</p>
+      <p><i class="fas fa-phone-alt"></i>  XX-XXXXXXX</p>
+    </div>
+    <div class="info-card">
+      <h2>ירושלים</h2>
+      <p><i class="fas fa-map-marker-alt"></i> רחוב XXXX</p>
+      <p><i class="fas fa-phone-alt"></i>  XX-XXXXXXX</p>
+    </div>
+    <div class="info-card">
+      <h2>רחובות</h2>
+      <p><i class="fas fa-map-marker-alt"></i> רחוב XXXX</p>
+      <p><i class="fas fa-phone-alt"></i> XX-XXXXXXX</p>
+    </div>
+  </div>
+<script src = "{{ url_for('branches.static', filename='js/branches.js')}}"></script>
 {% endblock  %}

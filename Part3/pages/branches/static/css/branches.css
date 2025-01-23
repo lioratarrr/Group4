@@ -1,0 +1,60 @@
+/* the Branches */
+.branches-container {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  justify-content: center;
+  padding: 5px;
+  max-width: 900px;
+  margin: 0 auto;
+ row-gap: 30px;
+  column-gap: 10px;
+   flex-wrap: wrap;
+}
+
+/* info Card */
+.info-card {
+  border: 2px solid #001a54;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  background-color: #FEFAF6;
+  color: #001a54;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  justify-content: flex-end;
+  width: 200px;
+  font-family: Heebo, sans-serif;
+  animation: zoomIn 0.8s ease-out forwards;
+}
+
+@keyframes zoomIn {
+   0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.info-card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Heebo, sans-serif;
+}
+/* for address and phone */
+.info-card p {
+  margin: 8px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+/* for Icons */
+.info-card i {
+  margin-left: 8px;
+  font-size: 18px;
+  color: #001a54;
+}
+
