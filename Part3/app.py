@@ -25,3 +25,5 @@ app.register_blueprint(useraccount)
 
 from pages.category.category import category
 app.register_blueprint(category)
+
+from db_functions import *

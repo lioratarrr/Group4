@@ -58,3 +58,10 @@
   color: #001a54;
 }
 
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #001a54;
+  margin-bottom: 20px;
+  font-family: Heebo,sans-serif;
+}
