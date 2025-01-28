@@ -12,6 +12,7 @@ const error = document.createElement('div')
 error.setAttribute('class', 'error')
 const success = document.createElement('div')
 success.setAttribute('class', 'success')
+const form = document.querySelector('form')
 
 
 button.addEventListener('click', (e) => { //sign up form even listener
@@ -57,6 +58,7 @@ button.addEventListener('click', (e) => { //sign up form even listener
     emailForSignUp.style.borderColor = "#102C57";
     passwordForSignUp.style.borderColor = "#102C57";
     success.textContent ='ההרשמה בוצעה בהצלחה'
+    form.submit()
     container.appendChild(success)
   }
 

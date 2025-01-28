@@ -10,10 +10,11 @@ const error = document.createElement('div')
 error.setAttribute('class', 'error')
 const success = document.createElement('div')
 success.setAttribute('class', 'success')
+const form = document.querySelector('form')
 
 // sign in event listener
 button.addEventListener('click', (e) => {
-  e.preventDefault();
+  e.preventDefault()
   error.textContent = ''
   if (emailForSignin.value === '' && passwordForSignin.value === '') {
     console.log('Both fields are empty');
@@ -48,6 +49,7 @@ button.addEventListener('click', (e) => {
     console.log('Success - log in');
     success.textContent ='הכניסה בוצעה בהצלחה'
     container.appendChild(success)
+    form.submit()
   }
 
   // Set a timeout to clear the error message after 5 seconds

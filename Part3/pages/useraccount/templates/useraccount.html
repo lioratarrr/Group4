@@ -5,16 +5,17 @@
 {% block content %}
 <div class="my-account">
     <h2>החשבון שלי</h2>
-    <div class="account-section">
+    <div class="section">
         <div class="right-section">
-            <div class="account-item"><i class="fa-solid fa-chevron-down"></i> הזמנות אחרונות:</div>
-            <div class="account-item"><i class="fa-solid fa-chevron-down"></i> כתובות אחרונות:</div>
+            <div class="account-item"><img src = "{{ url_for('useraccount.static', filename='media/dropdown.png')}}"> הזמנות אחרונות:</div>
+            <div class="account-item"><img src = "{{ url_for('useraccount.static', filename='media/dropdown.png')}}"> כתובות אחרונות:</div>
         </div>
         <div class="left-section">
-            <div class="account-item"><i class="fa-solid fa-chevron-down"></i> פרטים אישיים:</div>
+            <div class="account-item"><img src = "{{ url_for('useraccount.static', filename='media/dropdown.png')}}"> פרטים אישיים:</div>
         </div>
     </div>
 </div>
+<script src = "{{ url_for('useraccount.static', filename='js/useraccount.js')}}"></script>
 {% endblock  %}
 
 

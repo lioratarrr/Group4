@@ -1,7 +1,7 @@
 <div class="header-navbar">
 <!--   header and navbar combined-->
-  <div class="header-top">
-  <div class="header-icons">
+  <div id="header-top">
+    <div id="header-icons">
       <a href="https://www.instagram.com/gilisjewelry?igsh=bTYzamM1aW9wYjJ6" target="_blank"> <img src="{{ url_for('static', filename='elements/instagrambw.png')}}" class="header-photo" alt = "Instagram logo"> </a>
 <!--      instagram logo-->
       <a href="/contactus"><img src="{{ url_for('static', filename='elements/phone.png')}}" class="header-photo" alt = "Contact us logo"></a>
@@ -9,10 +9,21 @@
       <a href="/branches"><img src="{{ url_for('static', filename='elements/location.png')}}" class="header-photo" alt = "Location logo"> </a>
 <!--      locations logo-->
     </div>
-    <header class = "header">Gili's Jewelery</header>
-    <a href="/signin"><img src="{{ url_for('static', filename='elements/profile.png')}}" class="header-photo" alt ="Account logo"></a>
+    <header id = "header">Gili's Jewelery</header>
+
 <!--     sign in logo-->
-    <span class="hamburger">☰</span>
+    <div id = "account-container">
+      <div id="account">
+        {% if session.get('logged_in')%}
+        <a href="/logout"> log out</a>
+        <div id = 'greeting'>  {{session.get('email')}} ,כיף שחזרת </div>
+        <a href="/useraccount"><img src="{{ url_for('static', filename='elements/profile.png')}}" class="header-photo" alt ="Account logo"></a>
+        {%else%}
+          <a href="/signin"><img src="{{ url_for('static', filename='elements/profile.png')}}" class="header-photo" alt ="Account logo"></a>
+        {%endif%}
+        <span class="hamburger">☰</span>
+      </div>
+    </div>
 <!--     for smaller screens-->
   </div>
 

@@ -25,6 +25,5 @@ def category_func(category_name):
         return "Category not found", 404
 @category.route('/')
 def homepage_func():
-  category_data = categories_data.get('homepage')
-  return render_template('category.html', category_title=category_data['title'], products=category_data['category'])
+  return render_template('category.html')
 

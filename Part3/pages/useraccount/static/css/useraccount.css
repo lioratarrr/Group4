@@ -1,6 +1,7 @@
 /*For All*/
 .my-account {
-    margin: 30px auto;
+    font-family: Heebo;
+    margin: 10px auto;
     padding: 20px;
     width: 80%;
     max-width: 900px;
@@ -9,15 +10,16 @@
 }
 /*For the title*/
 .my-account h2 {
+    font-family: Heebo;
     color: #1a2a4a;
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
     text-align: right;
 }
 
 /* For the sections */
-.account-section {
+.section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -49,10 +51,36 @@
     display: flex;
     align-items: center;
     direction: rtl;
+  overflow: hidden; /* Prevent content from spilling out */
+    margin-bottom: 20px; /* Space between items */
+    position: relative; /* For relative positioning of mini window */
+    transition: margin-bottom 0.5s ease-in-out; /* Smooth transition for margin change */
+}
+.account-item {
+
 }
 
-.account-item i {
-    font-size: 1.2em;
-    color: #1a2a4a;
-    margin-left: 10px;
+.mini-window {
+    background-color: #FEFAF6;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #102C57;
+    position: absolute;
+    top: 100%; /* Position it below the button */
+    left: 0;
+    right: 0;
+    transform: translateY(-100%); /* Initially hidden */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Smooth sliding transition */
+}
+
+.mini-window.open {
+    transform: translateY(0); /* Slide it down to its original position */
+    opacity: 1; /* Make it visible */
+    visibility: visible; /* Make it visible */
+}
+
+.account-item.open {
+    margin-bottom: 100px; /* Push down other items when this item opens */
 }

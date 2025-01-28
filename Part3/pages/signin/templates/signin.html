@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2>Welcome!</h2>
-   <form>
+   <form action = '/signin' method = "POST">
    <div class = "formcontainer">
      <p> ?אנחנו כבר מכירות</p>
      <p class = "sign"> להתחברות</p>
@@ -17,7 +17,7 @@
        <input type="password" id="passwordsi" name="password">
      </div>
      <div>
-       <input type="button" value="התחברות" class = "btn">
+       <input type="submit" value="התחברות" class = "btn">
        <p><a href="/signup">אין לך חשבון אצלנו? להרשמה לחצי כאן</a> </p>
      </div>
    </div>

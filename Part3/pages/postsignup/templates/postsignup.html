@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('postsignup.static', filename='css/postsignup.css')}}"/>
+{% endblock %}
+{% block content %}
+<div class = 'section'>
+  <div class = 'right-section'>
+  <h2>ברוכה הבאה למשפחה!</h2>
+  <p> גילי תכשיטים הוא עסק משפחתי ושביעות הרצון שלך היא במקום הראשון! באתר זה תוכלי לשריין תכשיטים לבחיתרתך ונציג ייצור איתך קשר לתשלום. תהני!</p>
+  </div>
+  <div class = 'left-section'>
+    <h2> פרטים אחרונים וסיימנו</h2>
+    <form action = '/postsignup' method="POST">
+      <div class ="row">
+        <input type="text" id="city" name="city">
+        <label for ="city">עיר</label>
+      </div>
+      <div class ="row">
+        <input type="text" id="address" name="address">
+        <label for ="address">כתובת</label>
+      </div>
+      <div class ="row">
+        <input type="text" id="aptnum" name="aptnum">
+        <label for ="aptnum">מספר דירה</label>
+      </div>
+      <div class = "row">
+        <input type="phone" id="phonenum" name="phonenum">
+        <label for="phonenum">מספר טלפון</label>
+      </div>
+      <div>
+        <input type="button" id ="register" value="שלח" class = "btn">
+      </div>
+    </form>
+  </div>
+</div>
+<script src = "{{ url_for('postsignup.static', filename='js/postsignup.js')}}"></script>
+{% endblock  %}

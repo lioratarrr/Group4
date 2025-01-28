@@ -1,7 +1,7 @@
 /*!*english font*!*/
 @font-face {
   font-family: 'Tenor Sans';
-  src:url('Group4/Part2/Fonts/TenorSans-Regular.ttf') format('truetype');
+  src:url('../fonts/TenorSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -9,7 +9,7 @@
 /*hebrew font*/
 @font-face {
   font-family: "Heebo";
-  src:url('Group4/Part2/Fonts/Heebo-Regular.ttf') format('truetype');
+  src:url('../fonts/Heebo-Regular.ttf') format('truetype');
 }
 
 @media (max-width: 1100px) {
@@ -83,7 +83,7 @@ body {
 }
 
 /*adjust the top of the header that include the title*/
-.header-top {
+#header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,19 +97,48 @@ body {
 }
 
 /*formatting the icons spaces*/
-.header-icons {
+#header-icons {
   display: flex;
   gap: 15px;
 }
 
 /*title design*/
-.header {
+#header {
   font-size: 36px;
   font-family: "Tenor Sans", sans-serif;
   text-align: center;
   flex-grow: 1;
   margin-top: 40px;
 }
+
+#account-container {
+  color: #102C57 !important;
+}
+body #account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+#account a {
+  font-family: "Tenor Sans", sans-serif;
+  text-decoration: none;
+}
+
+#greeting {
+  font-family: Heebo, sans-serif;
+  justify-self: center;
+
+
+}
+
+#account img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
 
 /*navigation bar design and spacing*/
 .navbar {
@@ -253,6 +282,7 @@ input {
   padding: 5px;
   width: 200px;
   background-color: #FEFAF6;
+  text-align: right;
 }
 
 /*error design for filling out forms wrong*/
@@ -286,6 +316,7 @@ input {
   margin: 10px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 /*remove defaults from link*/
@@ -399,16 +430,41 @@ form {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  text-align: right;
 }
 
 
 
 /*label design*/
 label {
-  margin-right: 10px;
+  margin-left: 10px;
   width: 100px;
+  font-family: Heebo, sans-serif;
 }
 
+/* For the sections */
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
 
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-right: 20px;
+    margin-left: 0;
+}
 
-
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+     margin-right: 20px;
+}

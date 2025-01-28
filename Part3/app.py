@@ -1,8 +1,8 @@
 from flask import Flask
-from flask import redirect, url_for
-from flask import render_template
-
+from flask import session
+from flask import request
 app = Flask(__name__)
+app.secret_key = '1234'
 
 from pages.branches.branches import branches
 app.register_blueprint(branches)
@@ -26,4 +26,8 @@ app.register_blueprint(useraccount)
 from pages.category.category import category
 app.register_blueprint(category)
 
+from pages.postsignup.postsignup import postsignup
+app.register_blueprint(postsignup)
+
 from db_functions import *
+
