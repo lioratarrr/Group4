@@ -3,23 +3,23 @@
 {% block content %}
 <div class="category">{{ current_category }}</div>
   <div class="filter">
-    <select id="dropdown" name="options">
-      <option value="סניפים" disabled selected>סניפים</option>
-      {% for branch in branches %}
-      <option value="{{ branch }}">{{ branch }}</option>
-      {% endfor %}
-    </select>
-    <label for="dropdown">סינון לפי סניף</label>
+  <select id="dropdown" name="options">
+    <option value="סניפים" disabled selected>סניפים</option>
+    {% for branch in branches %}
+    <option value="{{ branch['_id'] }}">{{ branch['city'] }}</option>
+    {% endfor %}
+  </select>
+  <label for="dropdown">סינון לפי סניף</label>
   </div>
+
 
   <div class="Products">
     {% for product in products %}
     <div class="Product_Card">
       <h2 class="Product_Name">{{ product.name }}</h2>
-      <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.alt }}" class="Product_Image">
-      <button class="btn" onclick="presaveProduct('{{ product.name }}', '{{ product.image }}', '{{ product.alternate_image }}', '{{ product.description }}')">
-        <!-- Correct way to generate the URL for the product page -->
-        <a href="{{ url_for('product.product_func', product_id=product.name) }}">שריין עכשיו</a>
+      <img src="{{ url_for('category.static', filename= product.image_gold) }}" alt="{{ product.alt }}" class="Product_Image">
+      <button class="btn" onclick="presaveProduct('{{ product.name }}', '{{ url_for('category.static', filename=product.image_gold) }}', '{{ url_for('category.static', filename=product.image_silver) }}', '{{ product.description }}')">
+      <a href="{{ url_for('product.product_func', product_id=product.name) }}">שריין עכשיו</a>
 
       </button>
     </div>

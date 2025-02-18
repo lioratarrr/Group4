@@ -16,7 +16,7 @@
       <div id="account">
         {% if session.get('logged_in')%}
         <a href="/logout"> log out</a>
-        <div id = 'greeting'>  {{session.get('email')}} ,כיף שחזרת </div>
+        <div id = 'greeting'>כיף שחזרת,   {{session.get('first-name')}} </div>
         <a href="/useraccount"><img src="{{ url_for('static', filename='elements/profile.png')}}" class="header-photo" alt ="Account logo"></a>
         {%else%}
           <a href="/signin"><img src="{{ url_for('static', filename='elements/profile.png')}}" class="header-photo" alt ="Account logo"></a>

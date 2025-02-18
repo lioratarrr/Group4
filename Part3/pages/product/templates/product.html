@@ -24,14 +24,11 @@
       </select>
 <!--choose branch-->
       <label for="branch">סניף</label>
-      <select id="branch">
-          <option value="בחר סניף" disabled selected>בחר סניף</option>
-          <option value="באר שבע">באר שבע</option>
-          <option value="תל אביב">תל אביב</option>
-          <option value="רחובות">רחובות</option>
-          <option value="מודיעין">מודיעין</option>
-          <option value="ירושלים">ירושלים</option>
-          <option value="אשקלון">אשקלון</option>
+      <select id="branch" name="options">
+        <option value="בחר סניף" disabled selected>סניפים</option>
+        {% for branch in branches %}
+          <option value="{{ branch['_id'] }}">{{ branch['city'] }}</option>
+        {% endfor %}
       </select>
 <!--do you want to pick up?-->
       <div class = "checkbox-container">

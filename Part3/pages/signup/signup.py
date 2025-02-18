@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template
-from flask import request, session, redirect, url_for
+from flask import request, session, redirect, url_for, jsonify
+from Group4.Part3.db_functions import email_exists
+
 
 signup = Blueprint(
   'signup',
@@ -25,3 +27,10 @@ def sign_up_func ():
   session['last-name'] = lastname
   session['password'] = password
   return redirect('/postsignup')
+
+@signup.route('/check_email', methods=['POST'])
+def check_email():
+    email = request.form['email']
+    if email_exists(email):  # Check if email already exists
+        return jsonify({'exists': True})
+    return jsonify({'exists': False})

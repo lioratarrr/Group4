@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template
-
+from flask import Blueprint, render_template, session
+from Group4.Part3.db_functions import get_orders, get_info
 useraccount = Blueprint(
   'useraccount',
   __name__,
@@ -9,4 +9,7 @@ useraccount = Blueprint(
 )
 @useraccount.route('/useraccount')
 def user_account_func ():
-  return render_template('useraccount.html')
+  email = session.get('email')
+  user_orders = get_orders(email)
+  info = get_info(email)
+  return render_template('useraccount.html', orders=user_orders, info = info)

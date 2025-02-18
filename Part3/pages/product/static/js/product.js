@@ -1,36 +1,34 @@
-// set up variable from the previous page to plant in the product page
 const presaveProduct = (name, imageURLgold, imageURLsilver, description) => {
-  localStorage.setItem('productName', name)
-  localStorage.setItem('productImageGold', imageURLgold)
-  localStorage.setItem('productImageSilver', imageURLsilver)
-  localStorage.setItem('productDescription', description)
+  localStorage.setItem('productName', name);
+  localStorage.setItem('productImageGold', imageURLgold);
+  localStorage.setItem('productImageSilver', imageURLsilver);
+  localStorage.setItem('productDescription', description);
   window.location.href = 'product.html';
 }
-// set up variables from the local storage
-const productName = localStorage.getItem('productName')
-const productImageGold = localStorage.getItem('productImageGold')
-const productImageSilver = localStorage.getItem('productImageSilver')
-const productDescription = localStorage.getItem('productDescription') || 'תיאור המוצר לא זמין'
 
-// create connection to the elements in the page + errors and success
-const productImageElement = document.querySelector('.product-image img')
-const presave = document.querySelector('.Presave')
-const container = document.querySelector('#product-info')
-const color = document.querySelector('#color')
-const quantity = document.querySelector('#quantity')
-const branch = document.querySelector('#branch')
-const success = document.createElement('div')
-const error = document.createElement('div')
-error.setAttribute('class', 'error')
-success.setAttribute('class', 'success')
+const productName = localStorage.getItem('productName');
+const productImageGold = localStorage.getItem('productImageGold');
+const productImageSilver = localStorage.getItem('productImageSilver');
+const productDescription = localStorage.getItem('productDescription') || 'תיאור המוצר לא זמין';
 
-// Dynamically update the product page
+const productImageElement = document.querySelector('.product-image img');
+const presave = document.querySelector('.Presave');
+const container = document.querySelector('#product-info');
+const color = document.querySelector('#color');
+const quantity = document.querySelector('#quantity');
+const branch = document.querySelector('#branch');
+const pickup = document.querySelector('.checkbox-container')
+const success = document.createElement('div');
+const error = document.createElement('div');
+error.setAttribute('class', 'error');
+success.setAttribute('class', 'success');
+
+// Product data
 if (productName) {
   document.getElementById('product-name').textContent = productName;
   document.getElementById('product-description').textContent = productDescription;
 
   if (productImageElement) {
-    // Default to the first available image
     if (productImageGold) {
       productImageElement.src = productImageGold;
       productImageElement.alt = `${productName} זהב`;
@@ -38,84 +36,152 @@ if (productName) {
       productImageElement.src = productImageSilver;
       productImageElement.alt = `${productName} כסף`;
     } else {
-      productImageElement.src = ''; // No image available
+      productImageElement.src = '';
       productImageElement.alt = 'תמונה לא זמינה';
     }
   }
-  } else {
-  // Fallback if no product data is available
+} else {
   document.getElementById('product-info').innerHTML = '<p>אין מוצר שנבחר.</p>';
 }
 
-// removing unavailable options
-if (!productImageGold) {
-  console.log("Removing gold option");
-  color.querySelector('option[value="זהב"]').remove()
-}
+const goldOption = color.querySelector('option[value="זהב"]');
+const silverOption = color.querySelector('option[value="כסף"]');
 
+// Handle silver and gold options visibility
 if (!productImageSilver) {
-  console.log("Removing silver option");
-  color.querySelector('option[value="כסף"]').remove();
+  if (silverOption) silverOption.remove();
 }
 
-// change the options so if only one is available - preselect it
+if (!productImageGold) {
+  if (productImageSilver) {
+    productImageElement.src = productImageSilver;
+    productImageElement.alt = `${productName} כסף`;
+  }
+  if (goldOption) goldOption.remove();
+}
+
+// If only one option is available, set it as selected
 if (productImageGold && !productImageSilver) {
   color.value = 'זהב';
 } else if (!productImageGold && productImageSilver) {
   color.value = 'כסף';
+} else {
+  color.value = ''; // No option selected if neither is available
 }
-// change the photo according to the choice
-color.addEventListener('change', (e)=> {
-  e.preventDefault()
-  if (color.value ===  'כסף') {
-  console.log("color change silver")
-  productImageElement.src = productImageSilver
-    productImageElement.alt = `${productName} כסף - `
+
+// Update image based on color selection
+color.addEventListener('change', (e) => {
+  e.preventDefault();
+  if (color.value === 'כסף' && productImageSilver) {
+    productImageElement.src = productImageSilver;
+    productImageElement.alt = `${productName} כסף`;
+  } else if (color.value === 'זהב' && productImageGold) {
+    productImageElement.src = productImageGold;
+    productImageElement.alt = `${productName} זהב`;
   }
-})
-  // check for validity of the order
-  presave.addEventListener('click',(e) => {
-    e.preventDefault()
-    let hasError = false; // boolean to know if there are any more errors
-    //check color
-    if (color.value === 'בחר צבע') {
-      console.log("no color picked")
-      error.textContent += "נא לבחור צבע.      "
-      hasError = true;
-      color.style.borderColor = "Red"
-    }
+});
 
-    // Check quantity
-    if (quantity.value === 'בחר כמות') {
-      console.log("no quantity picked")
-      error.textContent += "נא לבחור כמות.     "
-      hasError = true
-      quantity.style.borderColor = "Red"
-    }
-
-    // Check branch
-    if (branch.value === 'בחר סניף' ) {
-      console.log("no branch picked")
-      error.textContent += "נא לבחור סניף.     "
-      hasError = true
-      branch.style.borderColor = "Red"
-    }
-
-    if (!hasError) {
-      success.textContent = "המוצר שוריין בהצלחה"
-      container.appendChild(success)
-      console.log("Presave- success")
-      setTimeout(() => { // timeout message
-        success.textContent = ''
-      }, 2000)
-    }
-
-    else {
-        container.appendChild(error)
-    }
-
-    setTimeout(() => {
-        error.textContent = ''
-    }, 5000)
+// Toggle between gold and silver images when clicked
+productImageElement.addEventListener('click', () => {
+  if (productImageElement.src.includes(productImageGold) && productImageSilver) {
+    productImageElement.src = productImageSilver;
+    productImageElement.alt = `${productName} כסף`;
+    color.value = 'כסף';
+  } else if (productImageGold) {
+    productImageElement.src = productImageGold;
+    productImageElement.alt = `${productName} זהב`;
+    color.value = 'זהב';
   }
-  )
+});
+
+// Handle form validation and submit
+presave.addEventListener('click', (e) => {
+  e.preventDefault();
+  let hasError = false;
+  error.textContent = ""; // Clear previous errors
+
+  // Validation checks
+
+  // Validate Color
+  if (color.value === '' || color.value === 'בחר צבע') {
+    error.textContent += "נא לבחור צבע. ";
+    hasError = true;
+    color.style.borderColor = "Red";
+  } else {
+    color.style.borderColor = ""; // Reset border color if valid
+  }
+
+  // Validate Quantity
+  if (quantity.value === '' || quantity.value === 'בחר כמות') {
+    error.textContent += "נא לבחור כמות. ";
+    hasError = true;
+    quantity.style.borderColor = "Red";
+  } else {
+    quantity.style.borderColor = ""; // Reset border color if valid
+  }
+
+  // Validate Branch (Ensuring a branch is selected)
+  if (branch.value === '' || branch.value === 'בחר סניף') {
+    error.textContent += "נא לבחור סניף. ";
+    hasError = true;
+    branch.style.borderColor = "Red";
+  } else {
+    branch.style.borderColor = ""; // Reset border color if valid
+  }
+
+  // If no errors, proceed to submit the order
+  if (!hasError) {
+    // Prepare order details
+    const orderData = {
+      productName: localStorage.getItem('productName'),
+      productImageGold: localStorage.getItem('productImageGold'),
+      productImageSilver: localStorage.getItem('productImageSilver'),
+      productDescription: localStorage.getItem('productDescription'),
+      color: color.value,
+      quantity: quantity.value,
+      branch: branch.value,  // Ensure branch is added here
+      pickup: pickup.checked,
+    }
+
+    // Send the order data to the server
+    fetch('/save_order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(orderData)
+    })
+      .then(response => {
+        console.log('Response Status:', response.status);  // Log response status
+
+        // Check if user is not logged in (401 status)
+        if (response.status === 401) {
+          alert('עלייך להתחבר לאתר לפני ביצוע הזמנה');
+          // Redirect to the sign-in page if the user is not logged in
+          window.location.href = '/signin';  // Redirect to the sign-in page
+          return; // Stop further processing
+        }
+
+        // Process the response if logged in
+        return response.json();
+      })
+      .then(data => {
+        if (data.status === 'success') {
+          alert('ההזמנה נשמרה בהצלחה!');
+        } else {
+          alert('שגיאה בשמירת הזמנה: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  // Append the error message to the container
+  container.appendChild(error);
+
+  // Set timeout to clear the error message after 5 seconds
+  setTimeout(() => {
+    error.textContent = '';
+  }, 5000);
+});

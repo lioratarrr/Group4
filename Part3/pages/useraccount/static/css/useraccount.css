@@ -51,36 +51,68 @@
     display: flex;
     align-items: center;
     direction: rtl;
-  overflow: hidden; /* Prevent content from spilling out */
+    overflow: hidden; /* Prevent content from spilling out */
     margin-bottom: 20px; /* Space between items */
     position: relative; /* For relative positioning of mini window */
     transition: margin-bottom 0.5s ease-in-out; /* Smooth transition for margin change */
 }
-.account-item {
 
+div {
+  font-family: Heebo, sans-serif ;
+  color: #102C57;
+  font-weight: bold;
+}
+/* Common styles for the toggle wrapper */
+.orders-wrapper,
+.personal-details-wrapper {
+    position: relative;
+    display: none;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0); /* Transparent background */
+    transition: background-color 0.5s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.mini-window {
-    background-color: #FEFAF6;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #102C57;
-    position: absolute;
-    top: 100%; /* Position it below the button */
-    left: 0;
-    right: 0;
-    transform: translateY(-100%); /* Initially hidden */
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* Initially hidden */
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Smooth sliding transition */
+/* Common container styles for both orders and personal details */
+.orders-container,
+.personal-details-container {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: max-height 1s ease, opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background color */
 }
 
-.mini-window.open {
-    transform: translateY(0); /* Slide it down to its original position */
-    opacity: 1; /* Make it visible */
-    visibility: visible; /* Make it visible */
+/* When the 'visible' class is added for both */
+.orders-wrapper.visible,
+.personal-details-wrapper.visible {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5); /* Lighter background */
+  border: #102C57 solid 3px;
+  border-radius: 6px;
 }
 
-.account-item.open {
-    margin-bottom: 100px; /* Push down other items when this item opens */
+/* When the orders or personal details container is visible */
+.orders-wrapper.visible .orders-container,
+.personal-details-wrapper.visible .personal-details-container {
+    max-height: 1000px;  /* Adjust to fit your content */
+    opacity: 1;
+    transform: translateY(0);
 }
+
+/* Styling for the toggle button */
+#toggle-arrow-orders,
+#toggle-arrow-personal {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover */
+}
+
+/* Hover effect for both "הזמנות אחרונות" and "פרטים אישיים" (Same as before) */
+#toggle-arrow-orders:hover,
+#toggle-arrow-personal:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
