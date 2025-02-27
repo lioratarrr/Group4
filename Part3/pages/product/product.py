@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session, request, jsonify
-from Group4.Part3.db_functions import get_branches, save_order
+from db_functions import get_branches, save_order
 
 product = Blueprint(
   'product',

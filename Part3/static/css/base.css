@@ -431,8 +431,11 @@ form {
   align-items: center;
   margin-bottom: 10px;
   text-align: right;
+  gap: 10px;
 }
-
+.row label {
+  margin-right: 10px; /* מרחיק את הכיתוב מהשדה */
+}
 
 
 /*label design*/

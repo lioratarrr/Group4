@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from flask import request, session, redirect, url_for
-from Group4.Part3.db_functions import insert_user_data
+from db_functions import insert_user_data
 postsignup = Blueprint(
   'postsignup',
   __name__,

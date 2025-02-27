@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from Group4.Part3.db_functions import get_branches
+from db_functions import get_branches
 
 branches = Blueprint(
   'branches',

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session
-from Group4.Part3.db_functions import get_orders, get_info
+from db_functions import get_orders, get_info
 useraccount = Blueprint(
   'useraccount',
   __name__,
