@@ -28,7 +28,11 @@
                     </div>
                 </div>
             {% else %}
+            <div class="orders-wrapper">
+              <div class="orders-container">
                 <p>לא נמצאו הזמנות אחרונות.</p>
+              </div>
+            </div>
             {% endif %}
         </div>
 
@@ -39,11 +43,11 @@
             </div>
             <div class="personal-details-wrapper">
                 <div class="personal-details-container">
-                    <div>{{ info['full_name'] }}</div>
-                    <div>{{ info['phone'] }}</div>
-                    <div>{{ info['city'] }}</div>
-                    <div>{{ info['address'] }}</div>
-                    <div>{{ info['aptnum'] }}</div>
+                    <div>שם מלא: {{ info['firstname'] }} {{info['lastname'] }}</div>
+                    <div>מספר טלפון: {{ info['phone'] }}</div>
+                    <div>עיר: {{ info['city'] }}</div>
+                    <div>כתובת: {{ info['address'] }}</div>
+                    <div>מספר דירה: {{ info['aptnum'] }}</div>
                 </div>
             </div>
         </div>

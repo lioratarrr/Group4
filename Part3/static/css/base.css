@@ -114,6 +114,17 @@ body {
 #account-container {
   color: #102C57 !important;
 }
+
+#logout {
+  padding: 3px;
+  border: 2px solid #102C57;
+  border-radius: 7px;
+}
+
+#logout:hover {
+  background-color: #102C57;
+  color: #FEFAF6;
+}
 body #account {
   display: flex;
   align-items: center;
@@ -129,8 +140,6 @@ body #account {
 #greeting {
   font-family: Heebo, sans-serif;
   justify-self: center;
-
-
 }
 
 #account img {
@@ -138,7 +147,6 @@ body #account {
   height: 50px;
   margin-right: 10px;
 }
-
 
 /*navigation bar design and spacing*/
 .navbar {
@@ -364,7 +372,6 @@ input {
   margin:10px auto;
 }
 
-
 /*Categories*/
 .category {
   text-align: center;
@@ -433,10 +440,10 @@ form {
   text-align: right;
   gap: 10px;
 }
+
 .row label {
   margin-right: 10px; /* מרחיק את הכיתוב מהשדה */
 }
-
 
 /*label design*/
 label {

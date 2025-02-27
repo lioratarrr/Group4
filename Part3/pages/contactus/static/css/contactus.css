@@ -51,6 +51,7 @@
   color: #102C57;
   width: 100px;
   cursor: pointer;
+  text-align: center;
   transition: all 0.3s ease;
 }
 #btn-submit:hover {
@@ -58,4 +59,10 @@
   color: #FEFAF6;
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#successmsg {
+  font-family: Heebo;
+  color: #FEFAF6;
+  text-align: center;
 }

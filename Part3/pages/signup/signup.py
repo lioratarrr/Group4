@@ -2,7 +2,6 @@ from flask import Blueprint, render_template
 from flask import request, session, redirect, url_for, jsonify
 from db_functions import email_exists
 
-
 signup = Blueprint(
   'signup',
   __name__,
@@ -19,7 +18,6 @@ def sign_up_func ():
   password = request.form['password']
   firstname = request.form['first-name']
   lastname = request.form['last-name']
-
   # DB CHECK
 
   session['email'] = email

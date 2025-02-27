@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template
 import random
 from db_functions import get_jewelry_by_category, get_all_jewelries, get_branches
-
 category = Blueprint(
   'category',
   __name__,
@@ -13,7 +12,6 @@ category = Blueprint(
 from flask import Flask, render_template
 
 app = Flask(__name__)
-
 
 @category.route('/category/<category_name>')
 def category_func(category_name):

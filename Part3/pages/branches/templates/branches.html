@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block css %}
   <link rel="stylesheet" href="{{ url_for('branches.static', filename='css/branches.css')}}"/>
 {% endblock %}
@@ -7,11 +8,11 @@
      <h1 class="title">סניפים</h1>
       <div class="branches-container">
         {% for branch in branches %}
-        <div class="info-card">
-        <h2> {{branch ['city']}}</h2>
-      <p><i class="fas fa-map-marker-alt"></i> {{branch ['address']}}</p>
-      <p><i class="fas fa-phone-alt"></i> {{branch ['phone']}}</p>
-    </div>
+          <div class="info-card">
+          <h2> {{branch ['city']}}</h2>
+          <p><i class="fas fa-map-marker-alt"></i> {{branch ['address']}}</p>
+          <p><i class="fas fa-phone-alt"></i> {{branch ['phone']}}</p>
+          </div>
         {%endfor %}
-  </div>
+      </div>
 {% endblock  %}

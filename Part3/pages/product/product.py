@@ -52,7 +52,7 @@ def save_order_func():
     'status': 'reserved',  # Example status
   }
 
-  # Try saving order data (replace with your actual DB function)
+  # Try saving order data
   try:
     if save_order(order_data):
       return jsonify({'status': 'success', 'message': 'Order saved successfully'})

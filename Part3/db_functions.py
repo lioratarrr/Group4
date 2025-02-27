@@ -13,6 +13,7 @@ branches_col = mydatabase['Branches']
 jeweleries_col = mydatabase['jewelries']
 customers_col = mydatabase['Customers']
 orders_col = mydatabase['Orders']
+inquiries_col = mydatabase['Inquiries']
 jeweleries_col.create_index("jewelry_id", unique=True)
 
 
@@ -117,3 +118,11 @@ def get_info(email):
   }
   return info
 
+def save_inquiry (contactus_data):
+  try:
+    # Insert order into MongoDB
+    inquiries_col.insert_one(contactus_data)
+    return True
+  except Exception as e:
+    print(f"Error saving order: {e}")
+    return False
