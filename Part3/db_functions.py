@@ -7,7 +7,7 @@ uri = "mongodb+srv://liordana:liordana@cluster0.mgcw9.mongodb.net"
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-# הגדרת מסד הנתונים והקולקשן
+# Define the database and collections
 mydatabase = client['database_project']
 branches_col = mydatabase['Branches']
 jeweleries_col = mydatabase['jewelries']
@@ -17,6 +17,7 @@ inquiries_col = mydatabase['Inquiries']
 jeweleries_col.create_index("jewelry_id", unique=True)
 
 
+# Function to get jewelry items by category
 def get_jewelry_by_category(category_name):
   jewelry_data = jeweleries_col.find({"category": category_name})
   category_info = {
@@ -35,7 +36,7 @@ def get_jewelry_by_category(category_name):
     category_info['category'].append(jewelry_info)
 
   return category_info
-
+# Function to get all branches
 def get_branches():
   return branches_col.find()
 
@@ -43,7 +44,7 @@ def get_branches():
 def get_all_jewelries():
   jewelries = jeweleries_col.find()
   return list(jewelries)  # Convert cursor to a list and return it
-
+# Function to insert a new user into the customers collection
 def insert_user_data(firstname, lastname, email, password, city, address, aptnum, phonenum):
   customers_col.insert_one({
     "first_name": firstname,
@@ -55,14 +56,14 @@ def insert_user_data(firstname, lastname, email, password, city, address, aptnum
     "aptnum": aptnum,
     "phonenum": phonenum
   })
-
+# Function to check if an email already exists in the database
 def email_exists(email):
     user = customers_col.find_one({"email": email})  # MongoDB example
     if user:
         return True
     return False
 
-
+# Function to verify user login credentials
 def verify_user_login(email, password):
   user = customers_col.find_one({"email": email})
   if user and user['password'] == password:  # Directly comparing the plain text password
@@ -76,7 +77,7 @@ from pymongo import MongoClient
 client = MongoClient('mongodb://localhost:27017')
 db = client['your_database']
 orders_collection = db['orders']
-
+# Function to verify user login credentials
 def save_order(order_data):
     try:
       now = datetime.now()
@@ -87,7 +88,7 @@ def save_order(order_data):
     except Exception as e:
         print(f"Error saving order: {e}")
         return False
-
+# Function to verify user login credentials
 def get_first_name (email):
   user = customers_col.find_one({"email": email}, {"_id": 0, "first_name": 1})
   return user['first_name']
@@ -97,7 +98,7 @@ def get_orders(email):
       .sort('date', -1)
     return list(orders)
 
-
+# Function to retrieve user information from the database
 def get_info(email):
   # Fetch each piece of information separately and extract the values
   firstname = customers_col.find_one({"email": email}, {"first_name": 1}).get("first_name")

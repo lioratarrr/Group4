@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block css %}
+    <!-- Link to the CSS file specific to the post-signup page -->
   <link rel="stylesheet" href="{{ url_for('postsignup.static', filename='css/postsignup.css')}}"/>
 {% endblock %}
 
@@ -34,5 +35,6 @@
     </form>
   </div>
 </div>
+    <!-- Include JavaScript file for post-signup functionality -->
 <script src = "{{ url_for('postsignup.static', filename='js/postsignup.js')}}"></script>
 {% endblock  %}

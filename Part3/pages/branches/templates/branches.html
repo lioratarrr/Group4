@@ -1,10 +1,13 @@
+<!-- Extends the base.html template -->
 {% extends 'base.html' %}
 
 {% block css %}
+     <!-- Link to the CSS file specific to the branches page -->
   <link rel="stylesheet" href="{{ url_for('branches.static', filename='css/branches.css')}}"/>
 {% endblock %}
 
 {% block content %}
+     <!-- Link to the CSS file specific to the branches page -->
      <h1 class="title">סניפים</h1>
       <div class="branches-container">
         {% for branch in branches %}

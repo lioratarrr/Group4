@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- Display the current category name -->
   <div class="category">{{ current_category }}</div>
+    <!-- Dropdown filter for selecting a branch -->
   <div class="filter">
   <select id="dropdown" name="options">
     <option value="סניפים" disabled selected>סניפים</option>
@@ -12,6 +14,7 @@
   <label for="dropdown">סינון לפי סניף</label>
   </div>
 
+  <!-- Display the list of products -->
   <div class="Products">
     {% for product in products %}
       <div class="Product_Card">
