@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 import random
-from db_functions import get_jewelry_by_category, get_all_jewelries, get_branches
+from utilities.db.db_connector import get_jewelry_by_category, get_all_jewelries, get_branches
 category = Blueprint(
   'category',
   __name__,

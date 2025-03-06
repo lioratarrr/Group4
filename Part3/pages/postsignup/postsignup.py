@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 from flask import request, session, redirect, url_for
-from db_functions import insert_user_data
+from utilities.db.db_connector import *
+
 postsignup = Blueprint(
   'postsignup',
   __name__,

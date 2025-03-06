@@ -29,5 +29,6 @@ app.register_blueprint(category)
 from pages.postsignup.postsignup import postsignup
 app.register_blueprint(postsignup)
 
-from db_functions import *
+from utilities.db.db_connector import *
+
 

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, session, request, jsonify
-from db_functions import get_branches, save_order
+from utilities.db.db_connector import *
+
 
 product = Blueprint(
   'product',
@@ -20,7 +21,7 @@ def product_func(product_id):
         'description': 'This is a detailed description of the product.',
         'image': '/static/jewelery/example.png',
     }
-    branchesdata = get_branches()
+    branchesdata = db_connector.get_branches()
     return render_template('product.html', product=product_data,branches = branchesdata)
 
 @product.route('/save_order', methods=['POST'])
@@ -54,7 +55,7 @@ def save_order_func():
 
   # Try saving order data
   try:
-    if save_order(order_data):
+    if db_connector.save_order(order_data):
       return jsonify({'status': 'success', 'message': 'Order saved successfully'})
     else:
       return jsonify({'status': 'error', 'message': 'Failed to save order'}), 500

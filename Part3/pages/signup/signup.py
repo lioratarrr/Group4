@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 from flask import request, session, redirect, url_for, jsonify
-from db_functions import email_exists
+from utilities.db.db_connector import *
+
 
 signup = Blueprint(
   'signup',

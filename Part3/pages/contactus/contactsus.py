@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, jsonify
-from db_functions import save_inquiry
+from utilities.db.db_connector import save_inquiry
 
 contactus = Blueprint(
     'contactus',

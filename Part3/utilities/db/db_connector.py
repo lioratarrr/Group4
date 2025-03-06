@@ -1,8 +1,14 @@
+import email
+import os
+from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from datetime import datetime
+from datetime import datetime, timedelta
+from bson import ObjectId
 
-uri = "mongodb+srv://liordana:liordana@cluster0.mgcw9.mongodb.net"
+load_dotenv()
+
+uri = os.environ.get('DB_URI')
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -127,3 +133,74 @@ def save_inquiry (contactus_data):
   except Exception as e:
     print(f"Error saving order: {e}")
     return False
+
+def delete_order_by_id(order_id, email):
+  result = orders_col.delete_one({'_id': order_id, 'email': email})
+  print(f"Deleted count: {result.deleted_count}")
+
+def update_user_info(email, field, new_value):
+    # Based on the field, update the appropriate user information
+    if field == 'name':
+      first_name, last_name = new_value.split()  # Split the new value into first and last names
+      result = customers_col.update_one(
+        {'email': email},
+        {'$set': {'first_name': first_name, 'last_name': last_name}}
+      )
+    elif field == 'phone':
+      result = customers_col.update_one(
+        {'email': email},
+        {'$set': {'phonenum': new_value}}
+      )
+    elif field == 'city':
+      result = customers_col.update_one(
+        {'email': email},
+        {'$set': {'city': new_value}}
+      )
+    elif field == 'address':
+      result = customers_col.update_one(
+        {'email': email},
+        {'$set': {'address': new_value}}
+      )
+    elif field == 'aptnum':
+      result = customers_col.update_one(
+        {'email': email},
+        {'$set': {'aptnum': new_value}}
+      )
+    else:
+      return None  # Invalid field
+    return result
+
+
+def delete_order_by_id(order_id):
+  try:
+    # Ensure the order_id is a valid ObjectId
+    if not ObjectId.is_valid(order_id):
+      return False, "Invalid order ID"
+
+    # Find the order by ID
+    order = orders_col.find_one({"_id": ObjectId(order_id)})
+
+    if not order:
+      return False, "Order not found"
+
+    # Get the DT field from the order and convert it to datetime
+    order_time_str = order.get("DT")
+    order_time = datetime.strptime(order_time_str, "%d/%m/%Y %H:%M:%S")  # Adjust format if needed
+
+    # Get the current time
+    current_time = datetime.now()
+
+    # Check if more than 24 hours have passed
+    if current_time - order_time > timedelta(hours=24):
+      return False, "לא ניתן לבטל את ההזמנה, עבר יותר מ-24 שעות. לפרטים נוספים נא לפנות לסניף"
+
+    # If less than 24 hours, proceed with deletion
+    result = orders_col.delete_one({"_id": ObjectId(order_id)})
+
+    if result.deleted_count > 0:
+      return True, "Order deleted successfully"
+    else:
+      return False, "Order not found"
+
+  except Exception as e:
+    return False, f"Error: {str(e)}"

@@ -83,15 +83,12 @@ div {
     opacity: 0;
     transform: translateY(-50px);
     transition: max-height 1s ease, opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
-    background-color: rgba(255, 255, 255, 0.8); /* Light background color */
 }
 
 /* When the 'visible' class is added for both */
 .orders-wrapper.visible,
 .personal-details-wrapper.visible {
     display: block;
-    background-color: rgba(255, 255, 255, 0.5); /* Lighter background */
-  border: #102C57 solid 3px;
   border-radius: 6px;
 }
 
@@ -116,3 +113,53 @@ div {
     transform: scale(1.1); /* Slight zoom effect */
 }
 
+#delete-button {
+  color: red;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#container {
+  display: flex;
+}
+
+input {
+  font-family: Heebo, sans-serif;
+  text-align: center;
+}
+
+button {
+  border: #102C57 3px solid;
+  border-radius: 5px  ;
+  color: #102C57;
+  background-color: #FEFAF6;
+  font-family: Heebo, sans-serif;
+}
+
+  button.cancel-btn:hover {
+    background-color: #102C57;
+    color: #FEFAF6;
+    font-weight: bold;
+  }
+
+.order-container {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-container div {
+  margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.order-container div:last-child {
+    margin-bottom: 0;
+}
+
+#cancellation {
+  color: red;
+}

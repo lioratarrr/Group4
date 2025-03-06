@@ -15,16 +15,21 @@
             {% if orders %}
                 <div class="orders-wrapper">
                     <div class="orders-container">
-                        <ul>
+                      <div id = "cancellation"> ביטולים יתקבלו עד 24 שעות מרגע ההזמנה</div>
                             {% for order in orders %}
-                                <li>
-                                    <div>תאריך הזמנה:  {{ order['DT'] }}</div>
-                                    <div>התכשיט שהוזמן:  {{ order['product_name'] }}</div>
-                                    <div>כמות: {{ order['quantity'] }}</div>
-                                    <div>צבע: {{ order['color'] }}</div>
-                                </li>
+                                    <div class="order-container">
+                                        <div>
+                                            <div>תאריך הזמנה:  {{ order['DT'] }}</div>
+                                            <div>התכשיט שהוזמן:  {{ order['product_name'] }}</div>
+                                            <div>כמות: {{ order['quantity'] }}</div>
+                                            <div>צבע: {{ order['color'] }}</div>
+                                        </div>
+                                      <!-- Cancel Order Button -->
+                                        <button class="cancel-btn"
+                                          onclick="deleteOrder(this)"
+                                          data-id="{{ order._id }}">ביטול הזמנה</button>
+                                    </div>
                             {% endfor %}
-                        </ul>
                     </div>
                 </div>
             {% else %}
@@ -42,13 +47,52 @@
                 פרטים אישיים:
             </div>
             <div class="personal-details-wrapper">
-                <div class="personal-details-container">
-                    <div>שם מלא: {{ info['firstname'] }} {{info['lastname'] }}</div>
-                    <div>מספר טלפון: {{ info['phone'] }}</div>
-                    <div>עיר: {{ info['city'] }}</div>
-                    <div>כתובת: {{ info['address'] }}</div>
-                    <div>מספר דירה: {{ info['aptnum'] }}</div>
+                <!-- Name Field -->
+              <div>
+                <span id="user-name" class="user-info">{{ info['firstname'] }} {{ info['lastname'] }}</span>
+              </div>
+
+              <!-- Phone Field -->
+              <div>
+                <span class="edit-icon" onclick="editField('phone')">&#9998;</span>  <!-- Pencil Icon -->
+                <span id="user-phone" class="user-info">{{ info['phone'] }}</span>
+                <div id="phone-edit-container" style="display: none;">
+                    <input type="text" id="phone-input" value="{{ info['phone'] }}" />
+                    <button id = "phone-submit-button" onclick="submitEdit('phone')">אישור</button>
                 </div>
+              </div>
+
+              <!-- City Field -->
+              <div>
+                <span class="edit-icon" onclick="editField('city')">&#9998;</span>  <!-- Pencil Icon -->
+                <span id="user-city" class="user-info">{{ info['city'] }}</span>
+                <div id="city-edit-container" style="display: none;">
+                    <input type="text" id="city-input" value="{{ info['city'] }}" />
+                    <button id = "city-submit-button" onclick="submitEdit('city')">אישור</button>
+                </div>
+              </div>
+
+              <!-- Address Field -->
+              <div>
+                <span class="edit-icon" onclick="editField('address')">&#9998;</span>  <!-- Pencil Icon -->
+                <span id="user-address" class="user-info">{{ info['address'] }}</span>
+                <div id="address-edit-container" style="display: none;">
+                    <input type="text" id="address-input" value="{{ info['address'] }}" />
+                    <button id="address-submit-button" onclick="submitEdit('address')">אישור</button>
+                </div>
+              </div>
+
+              <!-- Apartment Number Field -->
+              <div>
+                <span class="edit-icon" onclick="editField('aptnum')">&#9998;</span>  <!-- Pencil Icon -->
+                <span id="user-aptnum" class="user-info">{{ info['aptnum'] }}</span>
+                <div id="aptnum-edit-container" style="display: none;">
+                    <input type="text" id="aptnum-input" value="{{ info['aptnum'] }}" />
+                    <button id = "aptnum-submit-button" onclick="submitEdit('aptnum')">אישור</button>
+                </div>
+              </div>
+              </div>
+               <div id="error-message" style="color: red;"></div>
             </div>
         </div>
     </div>
