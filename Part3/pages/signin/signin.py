@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session, jsonify, request, redirect, url_for
-from utilities.db.db_connector import *
+from utilities.db.db_connector import verify_user_login, get_first_name
 
 
 signin = Blueprint(

@@ -192,7 +192,7 @@ def delete_order_by_id(order_id):
 
     # Check if more than 24 hours have passed
     if current_time - order_time > timedelta(hours=24):
-      return False, "לא ניתן לבטל את ההזמנה, עבר יותר מ-24 שעות. לפרטים נוספים נא לפנות לסניף"
+      return False, "לא ניתן לבטל את ההזמנה, עבר יותר מ-24 שעות. לפרטים נוספים נא לפנות לסניף3"
 
     # If less than 24 hours, proceed with deletion
     result = orders_col.delete_one({"_id": ObjectId(order_id)})

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from utilities.db.db_connector import *
+from utilities.db.db_connector import get_branches
 
 # Define a Flask blueprint for the branches page
 branches = Blueprint(
